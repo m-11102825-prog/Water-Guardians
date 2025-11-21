@@ -24,6 +24,154 @@
         .hero {
             background: linear-gradient(to right, #0096ff, #0066cc);
             color: white;
+            padding: 80px 30px;
+            text-align: center;
+            border-radius: 30px;
+            width: 80%;
+            margin: 40px auto;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px;
+        }
+
+        .tab-btn {
+            padding: 12px 25px;
+            font-size: 18px;
+            border-radius: 15px;
+            border: 2px solid #0080ff;
+            background: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .tab-btn:hover {
+            background: #0080ff;
+            color: white;
+        }
+
+        .content-section {
+            display: none;
+            background: white;
+            width: 85%;
+            margin: 20px auto;
+            padding: 30px;
+            font-size: 20px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px #bfe4ff;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .feedback-box {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        input, textarea {
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #bcdfff;
+            font-size: 18px;
+            width: 100%;
+        }
+
+        button.send {
+            background: #00a2ff;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 10px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button.send:hover {
+            background: #007acc;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>Water Guardians</header>
+
+<div class="hero">
+    <h1>Water Guardians</h1>
+    <p>Ensuring Clean Water for All — SDG 6</p>
+</div>
+
+<div class="tabs">
+    <button class="tab-btn" onclick="openTab('why')">Why Clean Water?</button>
+    <button class="tab-btn" onclick="openTab('challenges')">Challenges</button>
+    <button class="tab-btn" onclick="openTab('solutions')">Solutions</button>
+    <button class="tab-btn" onclick="openTab('help')">How You Can Help</button>
+    <button class="tab-btn" onclick="openTab('feedback')">Feedback</button>
+</div>
+
+<!-- WHY SECTION -->
+<div id="why" class="content-section active">
+    <h2>Why Clean Water Matters</h2>
+    <p>
+        Clean water is essential for drinking, hygiene, farming, and preventing diseases.
+        Without safe water, millions of people face health risks, especially children.
+    </p>
+</div>
+
+<!-- CHALLENGES -->
+<div id="challenges" class="content-section">
+    <h2>Water Challenges</h2>
+    <p>
+        Pollution, climate change, plastic waste, and poor water management make clean water harder to access.
+    </p>
+</div>
+
+<!-- SOLUTIONS -->
+<div id="solutions" class="content-section">
+    <h2>Solutions</h2>
+    <p>
+        Water filters, rainwater harvesting, reducing waste, and protecting rivers help restore
+        clean water access.
+    </p>
+</div>
+
+<!-- HOW YOU CAN HELP -->
+<div id="help" class="content-section">
+    <h2>How You Can Help</h2>
+    <p>
+        You can reduce water waste, avoid littering, educate others, and support clean water projects.
+    </p>
+</div>
+
+<!-- FEEDBACK -->
+<div id="feedback" class="content-section">
+    <h2>Feedback</h2>
+    <div class="feedback-box">
+        <input type="text" placeholder="Your name">
+        <textarea rows="4" placeholder="Your message"></textarea>
+        <button class="send">Send</button>
+    </div>
+</div>
+
+<script>
+function openTab(tabName) {
+    let sections = document.querySelectorAll(".content-section");
+    sections.forEach(section => section.classList.remove("active"));
+
+    document.getElementById(tabName).classList.add("active");
+}
+</script>
+
+</body>
+</html>
+
 
 
 
