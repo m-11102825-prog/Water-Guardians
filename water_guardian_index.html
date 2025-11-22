@@ -1,0 +1,307 @@
+<!-- Water Guardian - SDG 6 themed site
+     NOTE: This file intentionally does NOT include <!DOCTYPE html> per your previous request.
+     Save this as `index.html` and open in a browser. It is a single-file, self-contained website.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Water Guardian — Clean Water & Sanitation (SDG 6)</title>
+  <meta name="description" content="Water Guardian — projects, impact dashboard and ways to help achieve SDG 6: Clean Water & Sanitation.">
+  <style>
+    :root{--bg:#f4fbff;--card:#ffffff;--accent:#0b8fdb;--muted:#6b7280;--glass: rgba(255,255,255,0.6)}
+    *{box-sizing:border-box}
+    html,body{height:100%;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;line-height:1.45;color:#0f172a}
+    body{margin:0;background:linear-gradient(180deg,#e6f7ff 0%,var(--bg) 60%);padding-bottom:60px}
+
+    header{backdrop-filter: blur(6px);position:sticky;top:0;z-index:40}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:44px;height:44px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),#06b6d4);box-shadow:0 6px 18px rgba(11,143,219,0.18)}
+    .logo svg{width:28px;height:28px;filter:drop-shadow(0 4px 10px rgba(6,182,212,0.14))}
+    nav a{color:var(--muted);text-decoration:none;margin-left:16px;font-weight:600}
+    .cta{background:var(--accent);color:white;padding:8px 12px;border-radius:8px;font-weight:700;text-decoration:none}
+
+    .container{max-width:1120px;margin:28px auto;padding:0 20px}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
+    .hero-card{background:linear-gradient(180deg,rgba(255,255,255,0.85),var(--card));border-radius:16px;padding:28px;box-shadow:0 8px 30px rgba(12,74,110,0.06)}
+    .title{font-size:32px;margin:0 0 8px}
+    .lead{color:var(--muted);margin-bottom:16px}
+    .action-row{display:flex;gap:12px}
+    .pill{display:inline-flex;gap:10px;align-items:center;background:var(--glass);padding:6px 10px;border-radius:999px;font-weight:700}
+
+    /* Stats */
+    .stats{display:flex;gap:12px;margin-top:18px}
+    .stat{background:linear-gradient(180deg,#ffffff,#f9fdff);padding:14px;border-radius:12px;flex:1;text-align:center}
+    .stat .num{font-size:20px;font-weight:800;color:var(--accent)}
+    .stat .label{color:var(--muted);font-size:13px}
+
+    /* Projects */
+    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:26px}
+    .project{background:var(--card);border-radius:12px;padding:14px;box-shadow:0 6px 18px rgba(8,60,90,0.04)}
+    .project img{width:100%;height:150px;object-fit:cover;border-radius:8px;margin-bottom:10px}
+    .meta{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted)}
+
+    /* Interactive map placeholder */
+    .map{margin-top:22px;border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(2,6,23,0.06)}
+    .map iframe{width:100%;height:360px;border:0;display:block}
+
+    /* Blog/Resources */
+    .resources{display:grid;grid-template-columns:2fr 1fr;gap:14px;margin-top:26px}
+    .card{background:var(--card);padding:16px;border-radius:12px}
+
+    footer{margin-top:36px;padding:18px 0;color:var(--muted);text-align:center}
+
+    /* Responsive */
+    @media (max-width:900px){.hero{grid-template-columns:1fr}.map iframe{height:260px}}
+
+    /* small UI niceties */
+    .donate{background:linear-gradient(90deg,#ff7a59,#ffb77a);padding:10px 14px;border-radius:10px;color:white;font-weight:800;text-decoration:none}
+    .toggle{background:#f1f5f9;padding:8px;border-radius:8px}
+
+    /* Modal */
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(5,9,18,0.5);z-index:80}
+    .modal.open{display:flex}
+    .modal-card{background:var(--card);padding:18px;border-radius:12px;max-width:720px;width:92%}
+
+    /* tiny form */
+    input,textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef6;margin-top:8px}
+    button{cursor:pointer}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav container">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <!-- droplet + shield icon -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3s5 4 5 8a5 5 0 11-10 0c0-4 5-8 5-8z" fill="white"/><path d="M9 13c0 1.657 1.343 3 3 3s3-1.343 3-3" stroke="rgba(255,255,255,0.7)" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div style="font-weight:800;font-size:15px">Water Guardian</div>
+          <div style="font-size:12px;color:var(--muted)">Protecting water, protecting life — SDG 6</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#projects">Projects</a>
+        <a href="#impact">Impact</a>
+        <a href="#resources">Resources</a>
+        <a class="cta" href="#get-involved">Get Involved</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-card">
+        <h1 class="title">Water Guardian — Keep water flowing for everyone</h1>
+        <p class="lead">We design community-led water solutions: wells, filters, rain-harvesting, and hygiene programs that bring lasting change and track measurable impact.</p>
+
+        <div class="action-row">
+          <a class="donate" href="#donate">Donate</a>
+          <a class="toggle" id="open-projects" href="#projects">Explore Projects</a>
+          <div style="flex:1"></div>
+          <div class="pill">SDG 6 • Clean Water & Sanitation</div>
+        </div>
+
+        <div class="stats" id="impact">
+          <div class="stat"><div class="num" data-from="0" data-to="8240">0</div><div class="label">People served</div></div>
+          <div class="stat"><div class="num" data-from="0" data-to="132">0</div><div class="label">Wells installed</div></div>
+          <div class="stat"><div class="num" data-from="0" data-to="248000">0</div><div class="label">Liters/month</div></div>
+        </div>
+
+        <div style="margin-top:14px;color:var(--muted);font-size:13px">Latest project: <strong>Community rain-harvest & school hygiene, Kampung Lestari</strong></div>
+      </div>
+
+      <aside style="display:flex;flex-direction:column;gap:14px">
+        <div class="card">
+          <h3 style="margin:4px 0 8px">Interactive Map</h3>
+          <div class="map">
+            <!-- lightweight OpenStreetMap embed. Replace with a mapping library for real projects -->
+            <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=101.5%2C3.0%2C102.5%2C4.0&amp;layer=mapnik" loading="lazy" title="Project map"></iframe>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin:4px 0 8px">Quick actions</h3>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button onclick="openModal('donate')" class="donate">Donate</button>
+            <button onclick="openModal('volunteer')" class="toggle">Volunteer</button>
+            <a href="#resources" style="text-decoration:none" class="pill">Learn</a>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Why Clean Water Matters -->
+    <section id="why-water" class="container" style="margin-top:30px">
+      <h2 style="font-size:28px;font-weight:800;color:var(--accent);margin-bottom:10px">Why Clean Water Matters</h2>
+      <p style="color:var(--muted);font-size:16px;max-width:760px">
+        Clean water is essential for health, education, and community development. When communities have access to safe
+        water, they experience fewer diseases, improved school attendance, and better economic opportunities.
+      </p>
+    </section>
+
+    <!-- Water Challenges -->
+    <section id="water-challenges" class="container" style="margin-top:30px;background:#eef7ff;padding:20px;border-radius:12px">
+      <h2 style="font-size:28px;font-weight:800;color:var(--accent);margin-bottom:10px">Water Challenges</h2>
+      <p style="color:var(--muted);font-size:16px;max-width:760px">
+        Many people still face limited access to clean water due to pollution, climate change, broken infrastructure,
+        and water scarcity. These challenges put pressure on communities and make daily life more difficult.
+      </p>
+    </section>
+
+    <!-- Solutions -->
+    <section id="solutions" class="container" style="margin-top:30px">
+      <h2 style="font-size:28px;font-weight:800;color:var(--accent);margin-bottom:10px">Solutions</h2>
+      <p style="color:var(--muted);font-size:16px;max-width:760px">
+        Solutions include water filtration systems, rain-harvesting technology, improved sanitation, education programs,
+        and sustainable water management. With community-led efforts, long-term clean water access is achievable.
+      </p>
+    </section>
+
+    <section id="projects" class="container">
+      <h2 style="margin-top:18px">Featured Projects</h2>
+      <div class="projects">
+        <article class="project">
+          <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=1e7d0f5a1d7c4b1a6e2f9f8a2b4c6d5e" alt="Community well">
+          <h3 style="margin:8px 0">Kampung Lestari — Rain-harvest & School Hygiene</h3>
+          <p style="color:var(--muted);font-size:14px;margin:8px 0">Installed school rainwater systems and trained teachers on hygiene. Monitoring sensors installed.</p>
+          <div class="meta"><span>Started: Mar 2025</span><a href="#" onclick="openModal('p1')">Details</a></div>
+        </article>
+
+        <article class="project">
+          <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=2f4b9b3d0a7eca4bdc4e1f5c8e6b3a2f" alt="Water filter">
+          <h3 style="margin:8px 0">Urban Filters — Low-cost household filters</h3>
+          <p style="color:var(--muted);font-size:14px;margin:8px 0">Pilot program to distribute and maintain ceramic filters in peri-urban areas.</p>
+          <div class="meta"><span>Started: Jan 2024</span><a href="#" onclick="openModal('p2')">Details</a></div>
+        </article>
+
+        <article class="project">
+          <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=8b3c6f4a9c1f7b2a6d8e0f4a1b3c9d0e" alt="Well construction">
+          <h3 style="margin:8px 0">Remote Wells — Solar-powered pumps</h3>
+          <p style="color:var(--muted);font-size:14px;margin:8px 0">Solar pump installations for remote villages with community maintenance training.</p>
+          <div class="meta"><span>Started: Sep 2023</span><a href="#" onclick="openModal('p3')">Details</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="resources" class="resources">
+      <div class="card">
+        <h2>Resources & Guides</h2>
+        <article style="margin-top:10px">
+          <h4>How to build a simple rainwater-harvesting system</h4>
+          <p style="color:var(--muted);">Step-by-step guide and parts list for low-cost community systems. Download the PDF (placeholder).</p>
+        </article>
+
+        <article style="margin-top:10px">
+          <h4>Understanding SDG 6</h4>
+          <p style="color:var(--muted);">Short explainer on SDG 6 targets and indicators — what we measure and why it matters.</p>
+        </article>
+      </div>
+
+      <aside class="card">
+        <h3>Latest updates</h3>
+        <ul style="padding-left:18px;color:var(--muted)">
+          <li>Mobile water-quality testing added — Oct 2025</li>
+          <li>New partnership with local schools — Jul 2025</li>
+          <li>Impact report published — Apr 2025</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section id="get-involved" style="margin-top:22px">
+      <div class="card">
+        <h2>Get involved</h2>
+        <form onsubmit="event.preventDefault();submitForm()" style="display:grid;gap:10px;max-width:780px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <div><label>Name</label><input id="name" required></div>
+            <div><label>Email</label><input id="email" type="email" required></div>
+          </div>
+          <label>How do you want to help?</label>
+          <select id="helpType"><option>Volunteer</option><option>Partner (NGO)</option><option>Donate</option><option>Student project</option></select>
+          <label>Message</label>
+          <textarea id="message" rows="4" placeholder="Tell us more..."></textarea>
+          <div style="display:flex;gap:8px;align-items:center">
+            <button type="submit" class="donate">Send</button>
+            <div style="color:var(--muted);font-size:13px">Or <a href="#donate">donate</a> to support a project</div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">© <strong>Water Guardian</strong> • Built for SDG 6 — Clean Water and Sanitation</div>
+  </footer>
+
+  <!-- Modals (hidden by default) -->
+  <div class="modal" id="modal">
+    <div class="modal-card" id="modal-card">
+      <button onclick="closeModal()" style="float:right;background:none;border:0;font-weight:800;font-size:18px">✕</button>
+      <div id="modal-content">...</div>
+    </div>
+  </div>
+
+  <script>
+    // Animated counters
+    function animateCounters(){
+      document.querySelectorAll('.num').forEach(el=>{
+        const to = Number(el.dataset.to||0);
+        const from = Number(el.dataset.from||0);
+        const duration = 1500; // ms
+        const start = performance.now();
+        function step(now){
+          const t = Math.min(1,(now-start)/duration);
+          const val = Math.floor(from + (to-from)*easeOutCubic(t));
+          el.textContent = val.toLocaleString();
+          if(t<1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      })
+    }
+    function easeOutCubic(t){return 1 - Math.pow(1-t,3)}
+    // fire when visible
+    window.addEventListener('load',()=>{animateCounters();})
+
+    // Modal system
+    const modal = document.getElementById('modal');
+    const modalContent = document.getElementById('modal-content');
+    function openModal(key){
+      if(key==='donate'){
+        modalContent.innerHTML = `<h3>Donate to Water Guardian</h3><p style='color:var(--muted)'>Support a specific project or our general fund. (This demo doesn't process payments.)</p><p><strong>Suggested:</strong> RM 20 / RM 50 / RM 100</p>`;
+      } else if(key==='volunteer'){
+        modalContent.innerHTML = `<h3>Volunteer</h3><p style='color:var(--muted)'>Tell us your skills and availability. We'll match you to a nearby project.</p>`;
+      } else if(key==='p1'){
+        modalContent.innerHTML = `<h3>Kampung Lestari — Details</h3><p style='color:var(--muted)'>Rain-harvest tanks at 3 schools, hygiene curriculum delivered, sensors installed. Budget: RM 48,000.</p>`;
+      } else if(key==='p2'){
+        modalContent.innerHTML = `<h3>Urban Filters — Details</h3><p style='color:var(--muted)'>Pilot 200 households, ceramic filters, 6-month maintenance plan.</p>`;
+      } else if(key==='p3'){
+        modalContent.innerHTML = `<h3>Remote Wells — Details</h3><p style='color:var(--muted)'>Solar pumps, 24/7 access, community-trained maintenance committee.</p>`;
+      } else {
+        modalContent.innerHTML = `<h3>Info</h3><p style='color:var(--muted)'>More details will be added.</p>`;
+      }
+      modal.classList.add('open');
+    }
+    function closeModal(){modal.classList.remove('open')}
+    window.addEventListener('click', e=>{ if(e.target===modal) closeModal(); })
+
+    // small form submit (demo)
+    function submitForm(){
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const help = document.getElementById('helpType').value;
+      const msg = document.getElementById('message').value;
+      openModal();
+      modalContent.innerHTML = `<h3>Thanks, ${escapeHtml(name)}!</h3><p style='color:var(--muted)'>We received your request to '${escapeHtml(help)}'. We'll contact you at <strong>${escapeHtml(email)}</strong>.</p>`;
+    }
+    function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]))}
+
+    // Optional: let nav open projects on click
+    document.getElementById('open-projects').addEventListener('click', e=>{ e.preventDefault(); document.querySelector('#projects').scrollIntoView({behavior:'smooth'}); })
+  </script>
+</body>
+</html>
