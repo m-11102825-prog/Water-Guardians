@@ -1,3 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Guardians</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background: #e9f6ff;
+            color: #003d66;
+        }
+
+        /* Water Wave Header */
+        .header {
+            position: relative;
+            background: linear-gradient(135deg, #009dff, #005fce);
+            padding: 80px 20px;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+            background: url('https://i.imgur.com/hPDRakK.png');
+            background-size: 1000px 100px;
+            animation: wave 6s linear infinite;
+        }
+
+        @keyframes wave {
+            from { background-position-x: 0; }
+            to { background-position-x: 1000px; }
+        }
+
+        .header h1 {
+            font-size: 55px;
+            margin: 0;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        /* Navigation Tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 25px 0;
+            background: #ffffff;
+            box-shadow: 0 3px 10px #bbddff;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .tab-btn {
+            padding: 12px 25px;
+            border: none;
+            background: #eaf4ff;
+            border-radius: 25px;
+            font-size: 17px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 600;
+        }
+
+        .tab-btn:hover {
+            background: #007bff;
+            color: white;
+        }
+
+        /* Content Boxes */
+        .section {
+            display: none;
+            width: 80%;
+            margin: 30px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px #bbddff;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        .active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Icons */
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER WITH WAVE -->
+    <div class="header">
+        <h1>Water Guardians</h1>
+        <p>Clean Water for Everyone — SDG 6</p>
+        <div class="wave"></div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="tabs">
+        <button class="tab-btn" onclick="openTab('why')">Why Clean Water?</button>
+        <button class="tab-btn" onclick="openTab('challenge')">Challenges</button>
+        <button class="tab-btn" onclick="openTab('solutions')">Solutions</button>
+        <button class="tab-btn" onclick="openTab('help')">How You Can Help</button>
+        <button class="tab-btn" onclick="openTab('feedback')">Feedback</button>
+    </div>
+
+    <!-- WHY -->
+    <div id="why" class="section active">
+        <h2>Why Clean Water Matters</h2>
+        <p>Clean water is essential for life — drinking, hygiene, and preventing diseases. Billions still lack access to safe water, affecting health and education.</p>
+    </div>
+
+    <!-- CHALLENGES -->
+    <div id="challenge" class="section">
+        <h2>Major Challenges</h2>
+        <ul>
+            <li>Water pollution from factories and waste</li>
+            <li>Plastic contamination in oceans and rivers</li>
+            <li>Climate change causing droughts</li>
+            <li>Unequal water distribution</li>
+        </ul>
+    </div>
+
+    <!-- SOLUTIONS -->
+    <div id="solutions" class="section">
+        <h2>Solutions to Protect Water</h2>
+        <p>We can protect water by reducing waste, building treatment systems, and protecting rivers from pollution.</p>
+        <ul>
+            <li>Rainwater harvesting</li>
+            <li>Smart irrigation</li>
+            <li>River clean-up programmes</li>
+        </ul>
+    </div>
+
+    <!-- HELP -->
+    <div id="help" class="section">
+        <h2>How You Can Help</h2>
+        <p>You can make a difference even with small actions!</p>
+        <ul>
+            <li>Turn off taps when not in use</li>
+            <li>Avoid littering</li>
+            <li>Reduce use of plastic</li>
+            <li>Join water conservation campaigns</li>
+        </ul>
+    </div>
+
+    <!-- FEEDBACK -->
+    <div id="feedback" class="section">
+        <h2>Share Your Feedback</h2>
+        <input type="text" placeholder="Your Name" style="width:100%; padding:12px; margin-bottom:10px; border-radius:10px;">
+        <textarea placeholder="Your message..." rows="5" style="width:100%; padding:12px; border-radius:10px;"></textarea>
+        <button style="margin-top:15px; padding:12px 30px; background:#007bff; color:white; border:none; border-radius:10px; font-size:17px; cursor:pointer;">
+            Send Feedback
+        </button>
+    </div>
+
+<script>
+function openTab(tabName) {
+    document.querySelectorAll(".section").forEach(sec => sec.classList.remove("active"));
+    document.getElementById(tabName).classList.add("active");
+}
+</script>
+
+</body>
+</html>
 
 
 
