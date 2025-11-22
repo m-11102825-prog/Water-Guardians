@@ -135,6 +135,33 @@
       </aside>
     </section>
 
+    <!-- Why Clean Water Matters -->
+    <section id="why-water" class="container" style="margin-top:30px">
+      <h2 style="font-size:28px;font-weight:800;color:var(--accent);margin-bottom:10px">Why Clean Water Matters</h2>
+      <p style="color:var(--muted);font-size:16px;max-width:760px">
+        Clean water is essential for health, education, and community development. When communities have access to safe
+        water, they experience fewer diseases, improved school attendance, and better economic opportunities.
+      </p>
+    </section>
+
+    <!-- Water Challenges -->
+    <section id="water-challenges" class="container" style="margin-top:30px;background:#eef7ff;padding:20px;border-radius:12px">
+      <h2 style="font-size:28px;font-weight:800;color:var(--accent);margin-bottom:10px">Water Challenges</h2>
+      <p style="color:var(--muted);font-size:16px;max-width:760px">
+        Many people still face limited access to clean water due to pollution, climate change, broken infrastructure,
+        and water scarcity. These challenges put pressure on communities and make daily life more difficult.
+      </p>
+    </section>
+
+    <!-- Solutions -->
+    <section id="solutions" class="container" style="margin-top:30px">
+      <h2 style="font-size:28px;font-weight:800;color:var(--accent);margin-bottom:10px">Solutions</h2>
+      <p style="color:var(--muted);font-size:16px;max-width:760px">
+        Solutions include water filtration systems, rain-harvesting technology, improved sanitation, education programs,
+        and sustainable water management. With community-led efforts, long-term clean water access is achievable.
+      </p>
+    </section>
+
     <section id="projects" class="container">
       <h2 style="margin-top:18px">Featured Projects</h2>
       <div class="projects">
