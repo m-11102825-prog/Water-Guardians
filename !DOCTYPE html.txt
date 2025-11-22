@@ -1,177 +1,280 @@
+<!-- Water Guardian - SDG 6 themed site
+     NOTE: This file intentionally does NOT include <!DOCTYPE html> per your previous request.
+     Save this as `index.html` and open in a browser. It is a single-file, self-contained website.
+-->
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Water Guardian — SDG 6</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Water Guardian — Clean Water & Sanitation (SDG 6)</title>
+  <meta name="description" content="Water Guardian — projects, impact dashboard and ways to help achieve SDG 6: Clean Water & Sanitation.">
   <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial, Helvetica, sans-serif}
+    :root{--bg:#f4fbff;--card:#ffffff;--accent:#0b8fdb;--muted:#6b7280;--glass: rgba(255,255,255,0.6)}
+    *{box-sizing:border-box}
+    html,body{height:100%;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;line-height:1.45;color:#0f172a}
+    body{margin:0;background:linear-gradient(180deg,#e6f7ff 0%,var(--bg) 60%);padding-bottom:60px}
 
-    body{
-      background:#e9f7ff;
-      color:#0a2a43;
-    }
+    header{backdrop-filter: blur(6px);position:sticky;top:0;z-index:40}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:44px;height:44px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),#06b6d4);box-shadow:0 6px 18px rgba(11,143,219,0.18)}
+    .logo svg{width:28px;height:28px;filter:drop-shadow(0 4px 10px rgba(6,182,212,0.14))}
+    nav a{color:var(--muted);text-decoration:none;margin-left:16px;font-weight:600}
+    .cta{background:var(--accent);color:white;padding:8px 12px;border-radius:8px;font-weight:700;text-decoration:none}
 
-    /* HERO */
-    .hero{
-      background:linear-gradient(rgba(0,101,165,0.65), rgba(0,101,165,0.75)),
-                 url('https://images.unsplash.com/photo-1504274066651-8d31a536b11a?q=80&w=1200&auto=format&fit=crop') center/cover;
-      height:420px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      color:white;
-      padding:20px;
-    }
-    .hero h1{font-size:42px;margin-bottom:12px}
-    .hero p{max-width:600px;font-size:18px;margin:auto}
+    .container{max-width:1120px;margin:28px auto;padding:0 20px}
 
-    .btn{
-      display:inline-block;
-      background:#00aaff;
-      padding:10px 18px;
-      border-radius:8px;
-      margin-top:18px;
-      color:white;
-      text-decoration:none;
-      font-weight:bold;
-    }
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
+    .hero-card{background:linear-gradient(180deg,rgba(255,255,255,0.85),var(--card));border-radius:16px;padding:28px;box-shadow:0 8px 30px rgba(12,74,110,0.06)}
+    .title{font-size:32px;margin:0 0 8px}
+    .lead{color:var(--muted);margin-bottom:16px}
+    .action-row{display:flex;gap:12px}
+    .pill{display:inline-flex;gap:10px;align-items:center;background:var(--glass);padding:6px 10px;border-radius:999px;font-weight:700}
 
-    /* SECTION */
-    .section{
-      padding:40px 22px;
-      max-width:1100px;
-      margin:auto;
-    }
-    .section h2{
-      font-size:32px;
-      margin-bottom:18px;
-      text-align:center;
-    }
+    /* Stats */
+    .stats{display:flex;gap:12px;margin-top:18px}
+    .stat{background:linear-gradient(180deg,#ffffff,#f9fdff);padding:14px;border-radius:12px;flex:1;text-align:center}
+    .stat .num{font-size:20px;font-weight:800;color:var(--accent)}
+    .stat .label{color:var(--muted);font-size:13px}
 
-    /* PROJECT CARDS */
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:20px;
-      margin-top:20px;
-    }
-    .card{
-      background:white;
-      padding:16px;
-      border-radius:12px;
-      box-shadow:0 4px 14px rgba(0,0,0,0.1);
-    }
-    .card img{
-      width:100%;
-      height:160px;
-      object-fit:cover;
-      border-radius:8px;
-      margin-bottom:10px;
-    }
-    .card h3{margin-bottom:6px}
-    .card p{color:#444;font-size:14px}
+    /* Projects */
+    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:26px}
+    .project{background:var(--card);border-radius:12px;padding:14px;box-shadow:0 6px 18px rgba(8,60,90,0.04)}
+    .project img{width:100%;height:150px;object-fit:cover;border-radius:8px;margin-bottom:10px}
+    .meta{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted)}
 
-    /* TIMELINE */
-    .timeline{
-      margin-top:20px;
-      border-left:4px solid #0099dd;
-      padding-left:16px;
-    }
-    .timeline div{
-      margin-bottom:20px;
-      padding-left:10px;
-    }
-    .dot{
-      width:14px;
-      height:14px;
-      background:#0099dd;
-      border-radius:50%;
-      position:relative;
-      left:-23px;
-      top:10px;
-    }
-    .timeline strong{font-size:15px}
+    /* Interactive map placeholder */
+    .map{margin-top:22px;border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(2,6,23,0.06)}
+    .map iframe{width:100%;height:360px;border:0;display:block}
 
-    /* FOOTER */
-    footer{
-      background:#003d66;
-      color:white;
-      padding:20px;
-      text-align:center;
-      margin-top:40px;
-    }
+    /* Blog/Resources */
+    .resources{display:grid;grid-template-columns:2fr 1fr;gap:14px;margin-top:26px}
+    .card{background:var(--card);padding:16px;border-radius:12px}
+
+    footer{margin-top:36px;padding:18px 0;color:var(--muted);text-align:center}
+
+    /* Responsive */
+    @media (max-width:900px){.hero{grid-template-columns:1fr}.map iframe{height:260px}}
+
+    /* small UI niceties */
+    .donate{background:linear-gradient(90deg,#ff7a59,#ffb77a);padding:10px 14px;border-radius:10px;color:white;font-weight:800;text-decoration:none}
+    .toggle{background:#f1f5f9;padding:8px;border-radius:8px}
+
+    /* Modal */
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(5,9,18,0.5);z-index:80}
+    .modal.open{display:flex}
+    .modal-card{background:var(--card);padding:18px;border-radius:12px;max-width:720px;width:92%}
+
+    /* tiny form */
+    input,textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef6;margin-top:8px}
+    button{cursor:pointer}
   </style>
 </head>
 <body>
-
-  <!-- HERO -->
-  <div class="hero">
-    <div>
-      <h1>Water Guardian</h1>
-      <p>Empowering communities with clean water, sanitation, and sustainable water management — aligned with United Nations SDG 6.</p>
-      <a href="#projects" class="btn">Explore Our Projects</a>
+  <header>
+    <div class="nav container">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <!-- droplet + shield icon -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3s5 4 5 8a5 5 0 11-10 0c0-4 5-8 5-8z" fill="white"/><path d="M9 13c0 1.657 1.343 3 3 3s3-1.343 3-3" stroke="rgba(255,255,255,0.7)" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div style="font-weight:800;font-size:15px">Water Guardian</div>
+          <div style="font-size:12px;color:var(--muted)">Protecting water, protecting life — SDG 6</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#projects">Projects</a>
+        <a href="#impact">Impact</a>
+        <a href="#resources">Resources</a>
+        <a class="cta" href="#get-involved">Get Involved</a>
+      </nav>
     </div>
-  </div>
+  </header>
 
-  <!-- PROJECTS -->
-  <div class="section" id="projects">
-    <h2>Featured Water Projects</h2>
+  <main class="container">
+    <section class="hero">
+      <div class="hero-card">
+        <h1 class="title">Water Guardian — Keep water flowing for everyone</h1>
+        <p class="lead">We design community-led water solutions: wells, filters, rain-harvesting, and hygiene programs that bring lasting change and track measurable impact.</p>
 
-    <div class="grid">
+        <div class="action-row">
+          <a class="donate" href="#donate">Donate</a>
+          <a class="toggle" id="open-projects" href="#projects">Explore Projects</a>
+          <div style="flex:1"></div>
+          <div class="pill">SDG 6 • Clean Water & Sanitation</div>
+        </div>
 
+        <div class="stats" id="impact">
+          <div class="stat"><div class="num" data-from="0" data-to="8240">0</div><div class="label">People served</div></div>
+          <div class="stat"><div class="num" data-from="0" data-to="132">0</div><div class="label">Wells installed</div></div>
+          <div class="stat"><div class="num" data-from="0" data-to="248000">0</div><div class="label">Liters/month</div></div>
+        </div>
+
+        <div style="margin-top:14px;color:var(--muted);font-size:13px">Latest project: <strong>Community rain-harvest & school hygiene, Kampung Lestari</strong></div>
+      </div>
+
+      <aside style="display:flex;flex-direction:column;gap:14px">
+        <div class="card">
+          <h3 style="margin:4px 0 8px">Interactive Map</h3>
+          <div class="map">
+            <!-- lightweight OpenStreetMap embed. Replace with a mapping library for real projects -->
+            <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=101.5%2C3.0%2C102.5%2C4.0&amp;layer=mapnik" loading="lazy" title="Project map"></iframe>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin:4px 0 8px">Quick actions</h3>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button onclick="openModal('donate')" class="donate">Donate</button>
+            <button onclick="openModal('volunteer')" class="toggle">Volunteer</button>
+            <a href="#resources" style="text-decoration:none" class="pill">Learn</a>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="projects" class="container">
+      <h2 style="margin-top:18px">Featured Projects</h2>
+      <div class="projects">
+        <article class="project">
+          <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=1e7d0f5a1d7c4b1a6e2f9f8a2b4c6d5e" alt="Community well">
+          <h3 style="margin:8px 0">Kampung Lestari — Rain-harvest & School Hygiene</h3>
+          <p style="color:var(--muted);font-size:14px;margin:8px 0">Installed school rainwater systems and trained teachers on hygiene. Monitoring sensors installed.</p>
+          <div class="meta"><span>Started: Mar 2025</span><a href="#" onclick="openModal('p1')">Details</a></div>
+        </article>
+
+        <article class="project">
+          <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=2f4b9b3d0a7eca4bdc4e1f5c8e6b3a2f" alt="Water filter">
+          <h3 style="margin:8px 0">Urban Filters — Low-cost household filters</h3>
+          <p style="color:var(--muted);font-size:14px;margin:8px 0">Pilot program to distribute and maintain ceramic filters in peri-urban areas.</p>
+          <div class="meta"><span>Started: Jan 2024</span><a href="#" onclick="openModal('p2')">Details</a></div>
+        </article>
+
+        <article class="project">
+          <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=8b3c6f4a9c1f7b2a6d8e0f4a1b3c9d0e" alt="Well construction">
+          <h3 style="margin:8px 0">Remote Wells — Solar-powered pumps</h3>
+          <p style="color:var(--muted);font-size:14px;margin:8px 0">Solar pump installations for remote villages with community maintenance training.</p>
+          <div class="meta"><span>Started: Sep 2023</span><a href="#" onclick="openModal('p3')">Details</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="resources" class="resources">
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1529618160092-2d6ec4a29a91?q=80&w=1200&auto=format&fit=crop" alt="">
-        <h3>Village Water Pump</h3>
-        <p>Installation of solar-powered water pumps for remote villages to ensure 24/7 water supply.</p>
+        <h2>Resources & Guides</h2>
+        <article style="margin-top:10px">
+          <h4>How to build a simple rainwater-harvesting system</h4>
+          <p style="color:var(--muted);">Step-by-step guide and parts list for low-cost community systems. Download the PDF (placeholder).</p>
+        </article>
+
+        <article style="margin-top:10px">
+          <h4>Understanding SDG 6</h4>
+          <p style="color:var(--muted);">Short explainer on SDG 6 targets and indicators — what we measure and why it matters.</p>
+        </article>
       </div>
 
+      <aside class="card">
+        <h3>Latest updates</h3>
+        <ul style="padding-left:18px;color:var(--muted)">
+          <li>Mobile water-quality testing added — Oct 2025</li>
+          <li>New partnership with local schools — Jul 2025</li>
+          <li>Impact report published — Apr 2025</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section id="get-involved" style="margin-top:22px">
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1556760544-74068565f05c?q=80&w=1200&auto=format&fit=crop" alt="">
-        <h3>School Sanitation Program</h3>
-        <p>Providing clean toilets, hand-washing stations, and hygiene education for students.</p>
+        <h2>Get involved</h2>
+        <form onsubmit="event.preventDefault();submitForm()" style="display:grid;gap:10px;max-width:780px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <div><label>Name</label><input id="name" required></div>
+            <div><label>Email</label><input id="email" type="email" required></div>
+          </div>
+          <label>How do you want to help?</label>
+          <select id="helpType"><option>Volunteer</option><option>Partner (NGO)</option><option>Donate</option><option>Student project</option></select>
+          <label>Message</label>
+          <textarea id="message" rows="4" placeholder="Tell us more..."></textarea>
+          <div style="display:flex;gap:8px;align-items:center">
+            <button type="submit" class="donate">Send</button>
+            <div style="color:var(--muted);font-size:13px">Or <a href="#donate">donate</a> to support a project</div>
+          </div>
+        </form>
       </div>
+    </section>
 
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1580910051074-3eb694886505?q=80&w=1200&auto=format&fit=crop" alt="">
-        <h3>Rainwater Harvesting Tanks</h3>
-        <p>Large-capacity tanks installed in water-scarce areas to store clean rainwater.</p>
-      </div>
+  </main>
 
-    </div>
-  </div>
-
-  <!-- TIMELINE -->
-  <div class="section">
-    <h2>Our Progress</h2>
-
-    <div class="timeline">
-
-      <div>
-        <div class="dot"></div>
-        <strong>2023 — First Well Built</strong>
-        <p>Our pilot project successfully delivered clean water to 68 families.</p>
-      </div>
-
-      <div>
-        <div class="dot"></div>
-        <strong>2024 — Expanded to Schools</strong>
-        <p>Hygiene and sanitation programs launched in 12 rural schools.</p>
-      </div>
-
-      <div>
-        <div class="dot"></div>
-        <strong>2025 — Smart Water Sensors</strong>
-        <p>Data-driven monitoring ensures water quality is safe and reliable.</p>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- FOOTER -->
   <footer>
-    Water Guardian • Supporting SDG 6: Clean Water & Sanitation
+    <div class="container">© <strong>Water Guardian</strong> • Built for SDG 6 — Clean Water and Sanitation</div>
   </footer>
 
+  <!-- Modals (hidden by default) -->
+  <div class="modal" id="modal">
+    <div class="modal-card" id="modal-card">
+      <button onclick="closeModal()" style="float:right;background:none;border:0;font-weight:800;font-size:18px">✕</button>
+      <div id="modal-content">...</div>
+    </div>
+  </div>
+
+  <script>
+    // Animated counters
+    function animateCounters(){
+      document.querySelectorAll('.num').forEach(el=>{
+        const to = Number(el.dataset.to||0);
+        const from = Number(el.dataset.from||0);
+        const duration = 1500; // ms
+        const start = performance.now();
+        function step(now){
+          const t = Math.min(1,(now-start)/duration);
+          const val = Math.floor(from + (to-from)*easeOutCubic(t));
+          el.textContent = val.toLocaleString();
+          if(t<1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      })
+    }
+    function easeOutCubic(t){return 1 - Math.pow(1-t,3)}
+    // fire when visible
+    window.addEventListener('load',()=>{animateCounters();})
+
+    // Modal system
+    const modal = document.getElementById('modal');
+    const modalContent = document.getElementById('modal-content');
+    function openModal(key){
+      if(key==='donate'){
+        modalContent.innerHTML = `<h3>Donate to Water Guardian</h3><p style='color:var(--muted)'>Support a specific project or our general fund. (This demo doesn't process payments.)</p><p><strong>Suggested:</strong> RM 20 / RM 50 / RM 100</p>`;
+      } else if(key==='volunteer'){
+        modalContent.innerHTML = `<h3>Volunteer</h3><p style='color:var(--muted)'>Tell us your skills and availability. We'll match you to a nearby project.</p>`;
+      } else if(key==='p1'){
+        modalContent.innerHTML = `<h3>Kampung Lestari — Details</h3><p style='color:var(--muted)'>Rain-harvest tanks at 3 schools, hygiene curriculum delivered, sensors installed. Budget: RM 48,000.</p>`;
+      } else if(key==='p2'){
+        modalContent.innerHTML = `<h3>Urban Filters — Details</h3><p style='color:var(--muted)'>Pilot 200 households, ceramic filters, 6-month maintenance plan.</p>`;
+      } else if(key==='p3'){
+        modalContent.innerHTML = `<h3>Remote Wells — Details</h3><p style='color:var(--muted)'>Solar pumps, 24/7 access, community-trained maintenance committee.</p>`;
+      } else {
+        modalContent.innerHTML = `<h3>Info</h3><p style='color:var(--muted)'>More details will be added.</p>`;
+      }
+      modal.classList.add('open');
+    }
+    function closeModal(){modal.classList.remove('open')}
+    window.addEventListener('click', e=>{ if(e.target===modal) closeModal(); })
+
+    // small form submit (demo)
+    function submitForm(){
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const help = document.getElementById('helpType').value;
+      const msg = document.getElementById('message').value;
+      openModal();
+      modalContent.innerHTML = `<h3>Thanks, ${escapeHtml(name)}!</h3><p style='color:var(--muted)'>We received your request to '${escapeHtml(help)}'. We'll contact you at <strong>${escapeHtml(email)}</strong>.</p>`;
+    }
+    function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]))}
+
+    // Optional: let nav open projects on click
+    document.getElementById('open-projects').addEventListener('click', e=>{ e.preventDefault(); document.querySelector('#projects').scrollIntoView({behavior:'smooth'}); })
+  </script>
 </body>
 </html>
