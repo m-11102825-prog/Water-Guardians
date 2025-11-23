@@ -124,6 +124,8 @@
             margin-top: 15px;
             object-fit: cover;
             display: none;
+            background-color: #e6f7ff;
+            border: 2px dashed #26d0ce;
         }
         
         .point.active .point-description,
@@ -216,16 +218,17 @@
             height: 120px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
+            background-color: #e6f7ff;
+            border: 2px dashed #26d0ce;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #1a2980;
+            font-weight: bold;
         }
         
         .gallery-item:hover {
             transform: scale(1.05);
-        }
-        
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
         
         .call-to-action {
@@ -283,7 +286,7 @@
 <body>
     <div class="container">
         <header>
-            <h1>Water Conservation Points</h1>
+            <h1>Water Guardians - Conservation Points</h1>
             <p class="subtitle">Explore key information about water preservation and learn how you can contribute to protecting our planet's most vital resource</p>
         </header>
         
@@ -298,7 +301,12 @@
                         <p>Over 2 billion people live in countries experiencing high water stress. Climate change, population growth, and inefficient usage are exacerbating this global crisis.</p>
                         <p>By 2025, half of the world's population will be living in water-stressed areas. Conservation efforts today can prevent severe shortages tomorrow.</p>
                     </div>
-                    <img src="https://images.unsplash.com/photo-1548013146-72479768bada?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dry riverbed showing water scarcity" class="point-image">
+                    <div class="point-image">
+                        <div style="display: flex; justify-content: center; align-items: center; height: 100%; color: #1a2980; font-weight: bold;">
+                            <i class="fas fa-tint-slash" style="font-size: 48px; margin-right: 15px;"></i>
+                            <span>Water Scarcity Impact</span>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="point">
@@ -310,7 +318,12 @@
                         <p>The average household can reduce water usage by 30% through simple changes like fixing leaks, installing water-efficient fixtures, and changing daily habits.</p>
                         <p>Taking shorter showers, turning off taps when not in use, and only running full loads in dishwashers and washing machines can save thousands of gallons annually.</p>
                     </div>
-                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Water saving faucet" class="point-image">
+                    <div class="point-image">
+                        <div style="display: flex; justify-content: center; align-items: center; height: 100%; color: #1a2980; font-weight: bold;">
+                            <i class="fas fa-shower" style="font-size: 48px; margin-right: 15px;"></i>
+                            <span>Water Saving at Home</span>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="point">
@@ -322,7 +335,12 @@
                         <p>Agriculture accounts for approximately 70% of global freshwater withdrawals. Improving irrigation techniques could save enormous amounts of water.</p>
                         <p>Drip irrigation, soil moisture monitoring, and growing appropriate crops for local climates can significantly reduce agricultural water waste.</p>
                     </div>
-                    <img src="https://images.unsplash.com/photo-1622737133809-d95047b9e673?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern irrigation system" class="point-image">
+                    <div class="point-image">
+                        <div style="display: flex; justify-content: center; align-items: center; height: 100%; color: #1a2980; font-weight: bold;">
+                            <i class="fas fa-tractor" style="font-size: 48px; margin-right: 15px;"></i>
+                            <span>Efficient Farming Methods</span>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="point">
@@ -334,7 +352,12 @@
                         <p>Industries can implement water recycling systems, use dry cooling technologies, and optimize processes to minimize water consumption.</p>
                         <p>Water footprint assessments help companies identify areas for improvement, leading to both environmental benefits and cost savings.</p>
                     </div>
-                    <img src="https://images.unsplash.com/photo-1562077980-73cb0d5ae57c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Water treatment facility" class="point-image">
+                    <div class="point-image">
+                        <div style="display: flex; justify-content: center; align-items: center; height: 100%; color: #1a2980; font-weight: bold;">
+                            <i class="fas fa-industry" style="font-size: 48px; margin-right: 15px;"></i>
+                            <span>Water Recycling in Industry</span>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="point">
@@ -346,7 +369,12 @@
                         <p>Local initiatives like rainwater harvesting, watershed protection, and educational programs create resilient communities.</p>
                         <p>Community gardens using native plants, school water conservation programs, and local policy advocacy all contribute to sustainable water management.</p>
                     </div>
-                    <img src="https://images.unsplash.com/photo-1559027615-c7c535a81f4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Community water conservation project" class="point-image">
+                    <div class="point-image">
+                        <div style="display: flex; justify-content: center; align-items: center; height: 100%; color: #1a2980; font-weight: bold;">
+                            <i class="fas fa-users" style="font-size: 48px; margin-right: 15px;"></i>
+                            <span>Community Water Projects</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -374,16 +402,20 @@
                 
                 <div class="image-gallery">
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1439066615861-d1af74d74000?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Clean water source">
+                        <i class="fas fa-hand-holding-water" style="font-size: 36px; margin-right: 10px;"></i>
+                        Clean Water Source
                     </div>
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1544531585-9847b16c1f1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Water testing">
+                        <i class="fas fa-vial" style="font-size: 36px; margin-right: 10px;"></i>
+                        Water Testing
                     </div>
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1551085254-e96b210db58a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Water conservation education">
+                        <i class="fas fa-graduation-cap" style="font-size: 36px; margin-right: 10px;"></i>
+                        Water Education
                     </div>
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1570804439979-801c8ac1d1b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Rainwater harvesting">
+                        <i class="fas fa-cloud-rain" style="font-size: 36px; margin-right: 10px;"></i>
+                        Rain Harvesting
                     </div>
                 </div>
             </div>
