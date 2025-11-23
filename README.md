@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Water Guardians - Conservation Points</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -84,6 +85,11 @@
             border-left: 5px solid #26d0ce;
         }
         
+        .point-header {
+            display: flex;
+            align-items: center;
+        }
+        
         .point-number {
             display: inline-block;
             width: 35px;
@@ -111,7 +117,17 @@
             display: none;
         }
         
-        .point.active .point-description {
+        .point-image {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            margin-top: 15px;
+            object-fit: cover;
+            display: none;
+        }
+        
+        .point.active .point-description,
+        .point.active .point-image {
             display: block;
             animation: fadeIn 0.5s ease;
         }
@@ -186,6 +202,32 @@
             color: #777;
         }
         
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+            width: 100%;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 120px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
         .call-to-action {
             text-align: center;
             margin-top: 40px;
@@ -231,6 +273,10 @@
             h1 {
                 font-size: 2.2rem;
             }
+            
+            .image-gallery {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -244,54 +290,69 @@
         <div class="content-wrapper">
             <div class="points-container">
                 <div class="point active">
-                    <span class="point-number">1</span>
-                    <span class="point-title">Water Scarcity</span>
+                    <div class="point-header">
+                        <span class="point-number">1</span>
+                        <span class="point-title">Water Scarcity</span>
+                    </div>
                     <div class="point-description">
                         <p>Over 2 billion people live in countries experiencing high water stress. Climate change, population growth, and inefficient usage are exacerbating this global crisis.</p>
                         <p>By 2025, half of the world's population will be living in water-stressed areas. Conservation efforts today can prevent severe shortages tomorrow.</p>
                     </div>
+                    <img src="https://images.unsplash.com/photo-1548013146-72479768bada?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dry riverbed showing water scarcity" class="point-image">
                 </div>
                 
                 <div class="point">
-                    <span class="point-number">2</span>
-                    <span class="point-title">Household Conservation</span>
+                    <div class="point-header">
+                        <span class="point-number">2</span>
+                        <span class="point-title">Household Conservation</span>
+                    </div>
                     <div class="point-description">
                         <p>The average household can reduce water usage by 30% through simple changes like fixing leaks, installing water-efficient fixtures, and changing daily habits.</p>
                         <p>Taking shorter showers, turning off taps when not in use, and only running full loads in dishwashers and washing machines can save thousands of gallons annually.</p>
                     </div>
+                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Water saving faucet" class="point-image">
                 </div>
                 
                 <div class="point">
-                    <span class="point-number">3</span>
-                    <span class="point-title">Agricultural Efficiency</span>
+                    <div class="point-header">
+                        <span class="point-number">3</span>
+                        <span class="point-title">Agricultural Efficiency</span>
+                    </div>
                     <div class="point-description">
                         <p>Agriculture accounts for approximately 70% of global freshwater withdrawals. Improving irrigation techniques could save enormous amounts of water.</p>
                         <p>Drip irrigation, soil moisture monitoring, and growing appropriate crops for local climates can significantly reduce agricultural water waste.</p>
                     </div>
+                    <img src="https://images.unsplash.com/photo-1622737133809-d95047b9e673?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern irrigation system" class="point-image">
                 </div>
                 
                 <div class="point">
-                    <span class="point-number">4</span>
-                    <span class="point-title">Industrial Innovation</span>
+                    <div class="point-header">
+                        <span class="point-number">4</span>
+                        <span class="point-title">Industrial Innovation</span>
+                    </div>
                     <div class="point-description">
                         <p>Industries can implement water recycling systems, use dry cooling technologies, and optimize processes to minimize water consumption.</p>
                         <p>Water footprint assessments help companies identify areas for improvement, leading to both environmental benefits and cost savings.</p>
                     </div>
+                    <img src="https://images.unsplash.com/photo-1562077980-73cb0d5ae57c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Water treatment facility" class="point-image">
                 </div>
                 
                 <div class="point">
-                    <span class="point-number">5</span>
-                    <span class="point-title">Community Action</span>
+                    <div class="point-header">
+                        <span class="point-number">5</span>
+                        <span class="point-title">Community Action</span>
+                    </div>
                     <div class="point-description">
                         <p>Local initiatives like rainwater harvesting, watershed protection, and educational programs create resilient communities.</p>
                         <p>Community gardens using native plants, school water conservation programs, and local policy advocacy all contribute to sustainable water management.</p>
                     </div>
+                    <img src="https://images.unsplash.com/photo-1559027615-c7c535a81f4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Community water conservation project" class="point-image">
                 </div>
             </div>
             
             <div class="visual-container">
                 <div class="water-icon">
-                    <i>💧</i>
+                    <i class="fas fa-tint"></i>
                 </div>
                 <h2 class="visual-title">The Value of Every Drop</h2>
                 <p class="visual-description">Water is essential for all life on Earth. Protecting this precious resource ensures a sustainable future for generations to come.</p>
@@ -308,6 +369,21 @@
                     <div class="stat">
                         <div class="stat-value">0.5%</div>
                         <div class="stat-label">Accessible</div>
+                    </div>
+                </div>
+                
+                <div class="image-gallery">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1439066615861-d1af74d74000?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Clean water source">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1544531585-9847b16c1f1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Water testing">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1551085254-e96b210db58a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Water conservation education">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1570804439979-801c8ac1d1b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Rainwater harvesting">
                     </div>
                 </div>
             </div>
