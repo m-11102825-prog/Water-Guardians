@@ -1,137 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Water Guardian</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #e8f7ff;
-            color: #003049;
-        }
-        header {
-            background: linear-gradient(#0077b6, #0096c7);
-            padding: 30px;
-            text-align: center;
-            color: white;
-            font-size: 40px;
-            font-weight: bold;
-        }
-        .section {
-            padding: 40px;
-            background: white;
-            margin: 20px auto;
-            width: 80%;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-        h2 {
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
-        img.sec-img {
-            width: 100%;
-            border-radius: 15px;
-            margin-top: 15px;
-        }
-        textarea {
-            width: 100%;
-            height: 130px;
-            padding: 10px;
-            border-radius: 10px;
-            border: 2px solid #0077b6;
-            resize: none;
-            font-size: 16px;
-        }
-        button {
-            margin-top: 15px;
-            padding: 12px 20px;
-            background: #0096c7;
-            color: white;
-            font-size: 18px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #0077b6;
-        }
-        #feedback-list {
-            margin-top: 20px;
-            background: #f0fbff;
-            padding: 15px;
-            border-radius: 10px;
-        }
-        .fb-item {
-            background: #ffffff;
-            padding: 10px;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            border-left: 5px solid #0096c7;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Water Guardian</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eaf7ff;
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 230px;
+    height: 100%;
+    background: #004b8d;
+    padding-top: 20px;
+    color: white;
+  }
+
+  .sidebar h2 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .sidebar a {
+    display: block;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+  }
+
+  .sidebar a:hover {
+    background: #0066c2;
+  }
+
+  /* MAIN CONTENT */
+  .content {
+    margin-left: 260px;
+    padding: 30px;
+  }
+
+  .section {
+    background: white;
+    margin-bottom: 30px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  .section h1, .section h2 {
+    color: #0077cc;
+  }
+
+  img {
+    width: 100%;
+    border-radius: 12px;
+    margin-top: 15px;
+  }
+
+  textarea {
+    width: 100%;
+    height: 140px;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background: #0077cc;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #005fa3;
+  }
+</style>
 </head>
 <body>
-    <header>Water Guardian 🌊</header>
 
-    <div class="section">
-        <h2>Why Clean Water Matters</h2>
-        <p>Clean water is essential for health, hygiene, agriculture, and the environment. Millions of people still lack access to safe drinking water, causing diseases and poverty.</p>
-        <img class="sec-img" src="https://i.imgur.com/ZqU4EoT.jpeg" alt="Clean Water" />
-    </div>
+<div class="sidebar">
+  <h2>Water Guardian</h2>
+  <a href="#cleanwater">Why Clean Water Matters</a>
+  <a href="#challenges">Water Challenges</a>
+  <a href="#solutions">Solutions</a>
+  <a href="#help">How You Can Help</a>
+  <a href="#facts">Water Facts</a>
+  <a href="#feedback">Feedback</a>
+</div>
 
-    <div class="section">
-        <h2>Water Challenges</h2>
-        <p>Challenges include pollution, waste, droughts, climate change, and lack of proper water treatment systems. These problems affect rivers, lakes, oceans, and the people who depend on them.</p>
-        <img class="sec-img" src="https://i.imgur.com/xsJfFUt.jpeg" alt="Water Issues" />
-    </div>
+<div class="content">
 
-    <div class="section">
-        <h2>Solutions</h2>
-        <p>Solutions include better water management, reducing pollution, building water treatment plants, conserving water, and educating communities about protection efforts.</p>
-        <img class="sec-img" src="https://i.imgur.com/WGzxe2E.jpeg" alt="Solutions" />
-    </div>
+  <div class="section" id="cleanwater">
+    <h1>Why Clean Water Matters</h1>
+    <p>Clean water is essential for every living organism on Earth. It keeps our bodies healthy, prevents diseases, and supports daily needs like cooking, drinking, bathing, and cleaning. Without clean water, communities struggle with illness, poor hygiene, and limited access to education because children often spend hours collecting water instead of attending school.</p>
+    <p>Clean water also supports agriculture and food production. Farmers rely on water to grow crops, raise animals, and maintain healthy soil. Industries depend on water for manufacturing, cooling systems, and product development.</p>
+    <p>Healthy ecosystems—like rivers, lakes, wetlands, and oceans—need clean water to support fish, plants, and wildlife. When water becomes polluted, entire ecosystems collapse, affecting humans and animals alike.</p>
+    <img src="/mnt/data/c12ab307-0943-4cf5-adf7-a8901a85b374.png" alt="Water Image">
+  </div>
 
-    <div class="section">
-        <h2>How You Can Help</h2>
-        <ul>
-            <li>Save water at home</li>
-            <li>Avoid littering and reduce plastic waste</li>
-            <li>Report water pollution</li>
-            <li>Support clean water projects</li>
-        </ul>
-        <img class="sec-img" src="https://i.imgur.com/8pPrRHL.jpeg" alt="Help Water" />
-    </div>
+  <div class="section" id="challenges">
+    <h2>Water Challenges</h2>
+    <p>The world faces many water-related challenges. Pollution from factories, sewage, chemicals, and plastics contaminates water sources, making them unsafe for drinking or farming. In some countries, people must walk for miles to collect water, and sometimes the water they find is still unsafe.</p>
+    <p>Climate change is making water problems worse. Rising temperatures dry up rivers and lakes, causing droughts. Melting glaciers reduce long-term water supplies for millions of people. Heavy rainfall leads to floods that spread pollution and destroy homes.</p>
+    <p>Lastly, poor water management—such as leaking pipes, lack of filtration systems, and outdated infrastructure—causes millions of liters of water to be wasted every day.</p>
+  </div>
 
-    <div class="section">
-        <h2>Feedback</h2>
-        <p>Share your thoughts or ideas to protect water resources:</p>
-        <textarea id="feedback-input" placeholder="Write your feedback here..."></textarea>
-        <button onclick="submitFeedback()">Submit Feedback</button>
+  <div class="section" id="solutions">
+    <h2>Solutions</h2>
+    <p>There are many effective solutions that can help protect and restore the world’s water resources. Improving water treatment systems ensures communities receive safe and clean drinking water. Modern filtration technology can remove harmful bacteria, chemicals, and waste from polluted water.</p>
+    <p>Protecting rivers and forests prevents pollution and soil erosion. Reusing and recycling water in agriculture and industry reduces overall water consumption. Farmers can also use drip irrigation and water-efficient crops to save water.</p>
+    <p>Governments, schools, and organizations play a big role by creating programs, policies, and awareness campaigns to educate people about water conservation. Innovation and teamwork are the keys to protecting water for future generations.</p>
+  </div>
 
-        <div id="feedback-list"></div>
-    </div>
+  <div class="section" id="help">
+    <h2>How You Can Help</h2>
+    <p>Even small actions can make a huge difference when everyone works together. Here’s how you can help protect water every day:</p>
+    <ul>
+      <li>Take shorter showers to reduce water usage.</li>
+      <li>Fix leaking taps at home to prevent water wastage.</li>
+      <li>Use reusable bottles and bags to reduce plastic pollution.</li>
+      <li>Dispose of oil, paint, and chemicals properly—never pour them into sinks or drains.</li>
+      <li>Plant trees and support green spaces that help filter water naturally.</li>
+      <li>Educate friends and family about the importance of water conservation.</li>
+    </ul>
+    <p>When communities get involved, real change becomes possible.</p>
+  </div>
 
-    <script>
-        function submitFeedback() {
-            const input = document.getElementById('feedback-input');
-            const text = input.value.trim();
+  <div class="section" id="facts">
+    <h2>Global Water Facts</h2>
+    <p>Understanding the current water situation helps us see why SDG 6 is so important. Here are some powerful facts:</p>
+    <ul>
+      <li>2 billion people still live without clean and safe drinking water.</li>
+      <li>Every minute, a child dies from water-related illnesses.</li>
+      <li>Over 80% of wastewater in the world flows back into nature without being treated.</li>
+      <li>By 2050, water demand may increase by 55% due to farming, industries, and population growth.</li>
+      <li>Polluted water affects marine life, killing millions of fish, turtles, and birds each year.</li>
+    </ul>
+    <p>These facts show why protecting water is not only important but urgent. Our actions today decide the future of the planet.</p>
+  </div>
 
-            if (text === '') {
-                alert('Please write something.');
-                return;
-            }
+  <div class="section" id="feedback">
+    <h2>Feedback</h2>
+    <p>Write your feedback here:</p>
+    <textarea id="feedbackBox" placeholder="Your feedback..."></textarea>
+    <button onclick="submitFeedback()">Submit</button>
+    <p id="feedbackMessage" style="display:none; color:green; font-weight:bold;">Thank you for your feedback!</p>
+  </div>
 
-            const list = document.getElementById('feedback-list');
-            const item = document.createElement('div');
-            item.className = 'fb-item';
-            item.textContent = text;
+</div>
 
-            list.appendChild(item);
-            input.value = '';
-        }
-    </script>
+<script>
+function submitFeedback() {
+  let fb = document.getElementById('feedbackBox').value.trim();
+  if (fb !== "") {
+    document.getElementById('feedbackMessage').style.display = 'block';
+    document.getElementById('feedbackBox').value = "";
+  }
+}
+</script>
+
 </body>
 </html>
