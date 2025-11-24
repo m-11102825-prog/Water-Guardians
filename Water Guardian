@@ -85,6 +85,20 @@
             transform: translateX(-50%);
         }
 
+        /* Page Styles */
+        .page {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Header Styles */
         header {
             background-color: rgba(255, 255, 255, 0.95);
@@ -106,6 +120,7 @@
             display: flex;
             align-items: center;
             text-decoration: none;
+            cursor: pointer;
         }
 
         .logo-icon {
@@ -141,6 +156,7 @@
             transition: var(--transition);
             padding: 8px 0;
             position: relative;
+            cursor: pointer;
         }
 
         .nav-links a:after {
@@ -172,6 +188,7 @@
             display: flex;
             align-items: center;
             color: white;
+            margin-top: 80px;
         }
 
         .hero-content {
@@ -349,6 +366,7 @@
             color: #b0b7c3;
             text-decoration: none;
             transition: var(--transition);
+            cursor: pointer;
         }
 
         .footer-links a:hover {
@@ -474,29 +492,29 @@
     </style>
 </head>
 <body>
+    <!-- Alert Container -->
+    <div id="alert" class="alert"></div>
+
     <!-- Header -->
     <header>
         <div class="container">
             <nav>
-                <a href="#" class="logo" onclick="showPage('home')">
+                <div class="logo" onclick="showPage('home')">
                     <div class="logo-icon">
                         <i class="fas fa-tint"></i>
                     </div>
                     <div class="logo-text">Water<span>Guardians</span></div>
-                </a>
+                </div>
                 <ul class="nav-links">
-                    <li><a href="#" class="nav-link active" onclick="showPage('home')">Home</a></li>
-                    <li><a href="#" class="nav-link" onclick="showPage('about')">About</a></li>
-                    <li><a href="#" class="nav-link" onclick="showPage('issues')">Issues</a></li>
-                    <li><a href="#" class="nav-link" onclick="showPage('solutions')">Solutions</a></li>
-                    <li><a href="#" class="nav-link" onclick="showPage('action')">Take Action</a></li>
+                    <li><a class="nav-link active" onclick="showPage('home')">Home</a></li>
+                    <li><a class="nav-link" onclick="showPage('about')">About</a></li>
+                    <li><a class="nav-link" onclick="showPage('issues')">Issues</a></li>
+                    <li><a class="nav-link" onclick="showPage('solutions')">Solutions</a></li>
+                    <li><a class="nav-link" onclick="showPage('action')">Take Action</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-
-    <!-- Alert Container -->
-    <div id="alert" class="alert"></div>
 
     <!-- Home Page -->
     <div id="home" class="page active">
@@ -607,7 +625,7 @@
 
     <!-- About Page -->
     <div id="about" class="page">
-        <section class="hero" style="background: linear-gradient(135deg, rgba(0, 102, 204, 0.85) 0%, rgba(0, 153, 204, 0.8) 100%); margin-top: 80px; height: 40vh;">
+        <section class="hero" style="background: linear-gradient(135deg, rgba(0, 102, 204, 0.85) 0%, rgba(0, 153, 204, 0.8) 100%); height: 40vh;">
             <div class="container">
                 <div class="hero-content">
                     <h1>About Water Guardians</h1>
@@ -644,7 +662,7 @@
 
     <!-- Issues Page -->
     <div id="issues" class="page">
-        <section class="hero" style="background: linear-gradient(135deg, rgba(0, 102, 204, 0.85) 0%, rgba(0, 153, 204, 0.8) 100%); margin-top: 80px; height: 40vh;">
+        <section class="hero" style="background: linear-gradient(135deg, rgba(0, 102, 204, 0.85) 0%, rgba(0, 153, 204, 0.8) 100%); height: 40vh;">
             <div class="container">
                 <div class="hero-content">
                     <h1>Water Challenges</h1>
@@ -689,9 +707,56 @@
         </section>
     </div>
 
+    <!-- Solutions Page -->
+    <div id="solutions" class="page">
+        <section class="hero" style="background: linear-gradient(135deg, rgba(0, 102, 204, 0.85) 0%, rgba(0, 153, 204, 0.8) 100%); height: 40vh;">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Our Solutions</h1>
+                    <p>Innovative approaches to water conservation and protection</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="container">
+                <h2 class="text-center">How We're Making a Difference</h2>
+                
+                <div class="issues-grid">
+                    <div class="issue-card">
+                        <div class="issue-icon">
+                            <i class="fas fa-hand-holding-water"></i>
+                        </div>
+                        <h3>Community Monitoring</h3>
+                        <p>Empowering local communities to test water quality and report pollution issues through our citizen science programs.</p>
+                        <button class="btn" style="margin-top: 20px;" onclick="showAlert('Join our community monitoring program')">Get Involved</button>
+                    </div>
+                    
+                    <div class="issue-card">
+                        <div class="issue-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3>Conservation Programs</h3>
+                        <p>Implementing water-saving technologies and practices in communities, agriculture, and industries.</p>
+                        <button class="btn" style="margin-top: 20px;" onclick="showAlert('Learn about water conservation techniques')">Learn More</button>
+                    </div>
+                    
+                    <div class="issue-card">
+                        <div class="issue-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <h3>Policy Advocacy</h3>
+                        <p>Working with governments to strengthen water protection regulations and ensure sustainable water management.</p>
+                        <button class="btn" style="margin-top: 20px;" onclick="showAlert('Support our policy advocacy efforts')">Take Action</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
     <!-- Action Page -->
     <div id="action" class="page">
-        <section class="hero" style="background: linear-gradient(135deg, rgba(0, 102, 204, 0.85) 0%, rgba(0, 153, 204, 0.8) 100%); margin-top: 80px; height: 40vh;">
+        <section class="hero" style="background: linear-gradient(135deg, rgba(0, 102, 204, 0.85) 0%, rgba(0, 153, 204, 0.8) 100%); height: 40vh;">
             <div class="container">
                 <div class="hero-content">
                     <h1>Take Action</h1>
@@ -744,7 +809,7 @@
                         <div class="meter-progress" id="donationProgress"></div>
                     </div>
                     <div class="text-center">
-                        <button class="btn" onclick="makeDonation()">Contribute to Our Goal</button>
+                        <button class="btn" onclick="showDonationModal()">Contribute to Our Goal</button>
                     </div>
                 </div>
             </div>
@@ -763,19 +828,19 @@
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#" onclick="showPage('home')">Home</a></li>
-                        <li><a href="#" onclick="showPage('about')">About Us</a></li>
-                        <li><a href="#" onclick="showPage('issues')">Water Issues</a></li>
-                        <li><a href="#" onclick="showPage('solutions')">Our Solutions</a></li>
-                        <li><a href="#" onclick="showPage('action')">Get Involved</a></li>
+                        <li><a onclick="showPage('home')">Home</a></li>
+                        <li><a onclick="showPage('about')">About Us</a></li>
+                        <li><a onclick="showPage('issues')">Water Issues</a></li>
+                        <li><a onclick="showPage('solutions')">Our Solutions</a></li>
+                        <li><a onclick="showPage('action')">Get Involved</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Contact Us</h3>
                     <ul class="footer-links">
-                        <li><a href="mailto:info@waterguardians.org">info@waterguardians.org</a></li>
-                        <li><a href="tel:+15551234567">+1 (555) 123-4567</a></li>
+                        <li><a onclick="showContactModal()">info@waterguardians.org</a></li>
+                        <li><a>+1 (555) 123-4567</a></li>
                         <li>123 Conservation Way, Eco City</li>
                     </ul>
                 </div>
@@ -861,15 +926,20 @@
     </div>
 
     <script>
-        // Page Navigation
+        // Page Navigation System
         function showPage(pageId) {
+            console.log('Showing page:', pageId);
+            
             // Hide all pages
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
             });
             
             // Show selected page
-            document.getElementById(pageId).classList.add('active');
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
             
             // Update active nav link
             document.querySelectorAll('.nav-link').forEach(link => {
@@ -931,10 +1001,6 @@
             document.getElementById('donationProgress').style.width = `${progress}%`;
         }
 
-        function makeDonation() {
-            showDonationModal();
-        }
-
         // Form Submissions
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -968,8 +1034,21 @@
             }
         });
 
-        // Initialize donation progress
-        updateDonationProgress();
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize donation progress
+            updateDonationProgress();
+            
+            // Make sure home page is active
+            showPage('home');
+            
+            // Add click handlers to all buttons for debugging
+            document.querySelectorAll('button').forEach(button => {
+                button.addEventListener('click', function() {
+                    console.log('Button clicked:', this.textContent);
+                });
+            });
+        });
     </script>
 </body>
 </html>
