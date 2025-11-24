@@ -1,105 +1,119 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Water Conservation Points | Water Guardians</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Water Guardians - Protecting Our Water Resources</title>
     <style>
+        /* Base Styles */
+        :root {
+            --primary: #1a73e8;
+            --secondary: #34a853;
+            --accent: #4285f4;
+            --light: #f8f9fa;
+            --dark: #202124;
+            --text: #333333;
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        :root {
-            --primary: #1a6aa2;
-            --secondary: #26d0ce;
-            --accent: #ff6b6b;
-            --light: #f8f9fa;
-            --dark: #343a40;
-            --text: #495057;
         }
         
         body {
-            background-color: var(--light);
-            color: var(--text);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            overflow-x: hidden;
+            color: var(--text);
+            background-color: #f5f7fa;
         }
         
         .container {
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
         
-        /* Header Styles */
-        header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 80px 0 40px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+        section {
+            padding: 80px 0;
         }
         
-        .header-content {
-            position: relative;
-            z-index: 2;
+        h1, h2, h3 {
+            margin-bottom: 20px;
+            color: var(--dark);
         }
         
         h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
+            font-size: 3rem;
             font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
         
-        .subtitle {
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            opacity: 0.9;
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
         }
         
-        .header-wave {
+        h2:after {
+            content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="white"></path></svg>');
-            background-size: cover;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary);
+            border-radius: 2px;
         }
         
-        /* Navigation */
-        .nav-container {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
         }
         
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
+            padding: 20px 0;
         }
         
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
             color: var(--primary);
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo i {
-            margin-right: 10px;
-            color: var(--secondary);
+            text-decoration: none;
         }
         
         .nav-links {
@@ -115,257 +129,191 @@
             text-decoration: none;
             color: var(--dark);
             font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
+            transition: color 0.3s ease;
         }
         
         .nav-links a:hover {
             color: var(--primary);
         }
         
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--secondary);
-            transition: width 0.3s;
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        /* Points Section */
-        .points-section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--secondary);
-            border-radius: 2px;
-        }
-        
-        .section-title p {
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-            color: var(--text);
-        }
-        
-        .points-container {
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
             display: flex;
-            flex-direction: column;
-            gap: 40px;
-        }
-        
-        .point-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            display: flex;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .point-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-        }
-        
-        .point-number {
-            background: var(--primary);
-            color: white;
-            width: 80px;
-            display: flex;
-            justify-content: center;
             align-items: center;
-            font-size: 2.5rem;
-            font-weight: 700;
+            text-align: center;
+            color: white;
         }
         
-        .point-content {
-            padding: 30px;
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            color: white;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: white;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
             flex: 1;
         }
         
-        .point-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .point-title {
-            font-size: 1.8rem;
-            color: var(--primary);
-        }
-        
-        .point-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--secondary);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 1.5rem;
-        }
-        
-        .point-description {
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
-        
-        .point-details {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 25px;
-        }
-        
-        .detail-item {
-            display: flex;
-            align-items: flex-start;
-        }
-        
-        .detail-icon {
-            width: 40px;
-            height: 40px;
-            background: rgba(38, 208, 206, 0.1);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--secondary);
-            margin-right: 15px;
-            flex-shrink: 0;
-        }
-        
-        .detail-content h4 {
-            margin-bottom: 5px;
-            color: var(--primary);
-        }
-        
-        .stats-container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin: 60px 0 40px;
-        }
-        
-        .stat {
-            text-align: center;
-            margin: 20px;
-            padding: 30px;
-            background: white;
+        .about-image {
+            flex: 1;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            min-width: 200px;
-            transition: transform 0.3s;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         
-        .stat:hover {
-            transform: translateY(-5px);
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
         
-        .stat-value {
-            font-size: 3rem;
-            font-weight: 700;
+        /* Issues Section */
+        .issues {
+            background-color: #f0f7ff;
+        }
+        
+        .issues-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .issue-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .issue-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .issue-card h3 {
             color: var(--primary);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
         
-        .stat-label {
-            font-size: 1.1rem;
-            color: var(--text);
-        }
-        
-        /* Call to Action */
-        .cta-section {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            text-align: center;
-            padding: 100px 0;
-        }
-        
-        .cta-content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .cta-content h2 {
+        .issue-icon {
             font-size: 2.5rem;
             margin-bottom: 20px;
-        }
-        
-        .cta-content p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 15px 35px;
-            background: white;
             color: var(--primary);
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        /* Solutions Section */
+        .solutions {
+            background-color: white;
+        }
+        
+        .solution-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            gap: 30px;
+        }
+        
+        .solution-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .solution-text {
+            flex: 1;
+        }
+        
+        .solution-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .solution-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Action Section */
+        .action {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+        }
+        
+        .action h2 {
+            color: white;
+        }
+        
+        .action h2:after {
+            background-color: white;
+        }
+        
+        .action p {
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .action .btn {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        .action .btn:hover {
+            background-color: #f0f0f0;
         }
         
         /* Footer */
         footer {
-            background: var(--dark);
+            background-color: var(--dark);
             color: white;
-            padding: 60px 0 30px;
+            padding: 50px 0 20px;
         }
         
         .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
+            display: flex;
+            justify-content: space-between;
             margin-bottom: 40px;
         }
         
+        .footer-column {
+            flex: 1;
+            margin-right: 30px;
+        }
+        
+        .footer-column:last-child {
+            margin-right: 0;
+        }
+        
         .footer-column h3 {
-            font-size: 1.3rem;
+            color: white;
             margin-bottom: 20px;
-            color: var(--secondary);
         }
         
         .footer-links {
@@ -377,471 +325,246 @@
         }
         
         .footer-links a {
-            color: #adb5bd;
+            color: #ddd;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
         }
         
         .footer-links a:hover {
             color: white;
         }
         
-        .social-links {
-            display: flex;
-            margin-top: 20px;
-        }
-        
-        .social-links a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            margin-right: 10px;
-            color: white;
-            transition: background 0.3s;
-        }
-        
-        .social-links a:hover {
-            background: var(--secondary);
-        }
-        
         .copyright {
             text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #adb5bd;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
             font-size: 0.9rem;
+            color: #aaa;
         }
         
-        /* Responsive */
+        /* Page Content Styles */
+        .page-content {
+            padding-top: 100px;
+            min-height: calc(100vh - 200px);
+        }
+        
+        .page-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        var(--hero-image);
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+        
+        .page-hero h1 {
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .content-section {
+            margin-bottom: 60px;
+        }
+        
+        .content-section h2 {
+            text-align: left;
+        }
+        
+        .content-section h2:after {
+            left: 0;
+            transform: none;
+        }
+        
+        /* Responsive Design */
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .about-content,
+            .solution-item {
+                flex-direction: column;
+            }
+            
+            .solution-item:nth-child(even) {
+                flex-direction: column;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .footer-column {
+                margin-right: 0;
+                margin-bottom: 30px;
             }
             
             .nav-links {
                 display: none;
             }
             
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            .point-card {
-                flex-direction: column;
-            }
-            
-            .point-number {
-                width: 100%;
-                height: 80px;
-            }
-            
-            .point-details {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats-container {
-                flex-direction: column;
-                align-items: center;
+            .mobile-menu-btn {
+                display: block;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <div class="header-content">
-            <div class="container">
-                <h1>Water Conservation Points</h1>
-                <p class="subtitle">Key strategies and actions to protect our planet's most vital resource</p>
-                <a href="#points" class="btn">Explore Points</a>
-            </div>
-        </div>
-        <div class="header-wave"></div>
-    </header>
-    
-    <div class="nav-container">
         <div class="container">
             <nav>
-                <div class="logo">
-                    <i class="fas fa-tint"></i>
-                    WaterGuardians
-                </div>
+                <a href="index.html" class="logo">Water Guardians</a>
                 <ul class="nav-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#points">Points</a></li>
-                    <li><a href="#">Solutions</a></li>
-                    <li><a href="#">Get Involved</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="issues.html">Issues</a></li>
+                    <li><a href="solutions.html">Solutions</a></li>
+                    <li><a href="action.html">Take Action</a></li>
                 </ul>
             </nav>
         </div>
-    </div>
-    
-    <section class="points-section" id="points">
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="container">
-            <div class="section-title">
-                <h2>Key Conservation Points</h2>
-                <p>Explore the essential strategies and actions that can make a significant difference in water conservation efforts worldwide</p>
+            <div class="hero-content">
+                <h1>Protecting Our Precious Water Resources</h1>
+                <p>Join the movement to safeguard our rivers, lakes, and oceans for future generations. Together, we can ensure clean, accessible water for all.</p>
+                <a href="action.html" class="btn">Become a Water Guardian</a>
             </div>
-            
-            <div class="points-container">
-                <!-- Point 1 -->
-                <div class="point-card">
-                    <div class="point-number">1</div>
-                    <div class="point-content">
-                        <div class="point-header">
-                            <h3 class="point-title">Reduce Household Water Usage</h3>
-                            <div class="point-icon">
-                                <i class="fas fa-home"></i>
-                            </div>
-                        </div>
-                        <p class="point-description">Households account for a significant portion of water consumption. Simple changes in daily habits and upgrades to water-efficient fixtures can dramatically reduce water waste.</p>
-                        
-                        <div class="point-details">
-                            <div class="detail-item">
-                                <div class="detail-icon">
-                                    <i class="fas fa-shower"></i>
-                                </div>
-                                <div class="detail-content">
-                                    <h4>Shorter Showers</h4>
-                                    <p>Reducing shower time by just 2 minutes can save up to 1,500 gallons per person annually.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="detail-item">
-                                <div class="detail-icon">
-                                    <i class="fas fa-faucet"></i>
-                                </div>
-                                <div class="detail-content">
-                                    <h4>Fix Leaks</h4>
-                                    <p>A dripping faucet can waste over 3,000 gallons per year. Prompt repairs are essential.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="detail-item">
-                                <div class="detail-icon">
-                                    <i class="fas fa-toilet"></i>
-                                </div>
-                                <div class="detail-content">
-                                    <h4>Efficient Fixtures</h4>
-                                    <p>Low-flow toilets and showerheads can reduce water usage by 20-60%.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="detail-item">
-                                <div class="detail-icon">
-                                    <i class="fas fa-utensils"></i>
-                                </div>
-                                <div class="detail-content">
-                                    <h4>Full Loads Only</h4>
-                                    <p>Running dishwashers and washing machines only when full saves both water and energy.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        </div>
+    </section>
+
+    <!-- About Preview Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Water Guardians</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Water Guardians is a global initiative dedicated to protecting and preserving our planet's most vital resource: water. Founded in 2020, our organization brings together scientists, activists, and concerned citizens to address the growing threats to our water systems.</p>
+                    <p>Our mission is to ensure that every person has access to clean, safe drinking water while protecting aquatic ecosystems from pollution, overuse, and climate change impacts.</p>
+                    <a href="about.html" class="btn">Learn More About Us</a>
                 </div>
-                
-                <!-- Point 2 -->
-                <div class="point-card">
-                    <div class="point-number">2</div>
-                    <div class="point-content">
-                        <div class="point-header">
-                            <h3 class="point-title">Implement Smart Agricultural Practices</h3>
-                            <div class="point-icon">
-                                <i class="fas fa-tractor"></i>
-                            </div>
-                        </div>
-                        <p class="point-description">Agriculture is the largest consumer of freshwater globally. Adopting efficient irrigation methods and water-smart farming techniques can significantly reduce agricultural water usage.</p>
-                        
-                        <div class="point-details">
-                            <div class="detail-item">
-                                <div class="detail-icon">
-                                    <i class="fas fa-tint"></i>
-                                </div>
-                                <div class="detail-content">
-                                    <h4>Drip Irrigation</h4>
-                                    <p>Delivers water directly to plant roots, reducing evaporation and runoff by up to 60%.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="detail-item">
-                                <div class="detail-icon">
-                                    <i class="fas fa-cloud-sun"></i>
-                                </div>
-                                <div class="detail-content">
-                                    <h4>Soil Moisture Monitoring</h4>
-                                    <p>Smart sensors ensure watering only when necessary, preventing over-irrigation.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="detail-item">
-                                <div class="detail-icon">
-                                    <i class="fas fa-seedling"></i>
-                                </div>
-                                <div class="detail-content">
-                                    <h4>Drought-Resistant Crops</h4>
-                                    <p>Planting crops suited to local climate conditions reduces irrigation demands.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="detail-item">
-                                <div class="detail-icon">
-                                    <i class="fas fa-recycle"></i>
-                                </div>
-                                <div class="detail-content">
-                                    <h4>Water Recycling</h4>
-                                    <p>Treating and reusing agricultural runoff conserves freshwater resources.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Point 3 -->
-                <div class="point-card">
-                    <div class="point-number">3</div>
-                    <div class="point-content">
-                        <div class="point-header">
-                            <h3 class="point-title">Promote Industrial Water Efficiency</h3>
-                            <div class="point-icon">
-                                <i class="fas fa-industry"></i>
-                            </div>
-                        </div>
-                        <p class="point-description">Industries can dramatically reduce their water footprint through process optimization, recycling systems, and innovative technologies that minimize water consumption.</p>
-                        
-                        <div class="point-details">
-                            <div class="detail-item">
-                                <div class="detail-icon">
-                                    <i class="fas fa-recycle"></i>
-                                </div>
-                                <div class="detail-content">
-                                    <h4>Closed-Loop Systems</h4>
-                                    <p>Recycling water within industrial processes reduces freshwater intake by up to 90%.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="detail-item">
-                                <div class="detail-icon">
-                                    <i class="fas fa-cogs"></i>
-                                </div>
-                                <div class="detail-content">
-                                    <h4>Process Optimization</h4>
-                                    <p>Efficient manufacturing techniques can significantly reduce water requirements.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="detail-item">
-                                <div class="detail-icon">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                <div class="detail-content">
-                                    <h4>Water Audits</h4>
-                                    <p>Regular assessments identify areas for improvement and potential savings.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="detail-item">
-                                <div class="detail-icon">
-                                    <i class="fas fa-hand-holding-water"></i>
-                                </div>
-                                <div class="detail-content">
-                                    <h4>Alternative Sources</h4>
-                                    <p>Using treated wastewater or harvested rainwater for non-potable applications.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Point 4 -->
-                <div class="point-card">
-                    <div class="point-number">4</div>
-                    <div class="point-content">
-                        <div class="point-header">
-                            <h3 class="point-title">Protect and Restore Watersheds</h3>
-                            <div class="point-icon">
-                                <i class="fas fa-tree"></i>
-                            </div>
-                        </div>
-                        <p class="point-description">Healthy watersheds are essential for maintaining water quality and regulating water flow. Conservation and restoration efforts protect these vital ecosystems.</p>
-                        
-                        <div class="point-details">
-                            <div class="detail-item">
-                                <div class="detail-icon">
-                                    <i class="fas fa-mountain"></i>
-                                </div>
-                                <div class="detail-content">
-                                    <h4>Riparian Buffers</h4>
-                                    <p>Vegetated areas along water bodies filter pollutants and prevent erosion.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="detail-item">
-                                <div class="detail-icon">
-                                    <i class="fas fa-water"></i>
-                                </div>
-                                <div class="detail-content">
-                                    <h4>Wetland Restoration</h4>
-                                    <p>Wetlands act as natural water filters and flood control systems.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="detail-item">
-                                <div class="detail-icon">
-                                    <i class="fas fa-ban"></i>
-                                </div>
-                                <div class="detail-content">
-                                    <h4>Pollution Prevention</h4>
-                                    <p>Reducing agricultural and urban runoff protects water quality.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="detail-item">
-                                <div class="detail-icon">
-                                    <i class="fas fa-hands-helping"></i>
-                                </div>
-                                <div class="detail-content">
-                                    <h4>Community Involvement</h4>
-                                    <p>Local stewardship programs engage citizens in watershed protection.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="stats-container">
-                <div class="stat">
-                    <div class="stat-value">30%</div>
-                    <div class="stat-label">Potential Reduction in Household Water Use</div>
-                </div>
-                
-                <div class="stat">
-                    <div class="stat-value">50%</div>
-                    <div class="stat-label">Water Savings with Drip Irrigation</div>
-                </div>
-                
-                <div class="stat">
-                    <div class="stat-value">70%</div>
-                    <div class="stat-label">Industrial Water Recycling Potential</div>
-                </div>
-                
-                <div class="stat">
-                    <div class="stat-value">2.5B</div>
-                    <div class="stat-label">People Impacted by Water Scarcity</div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Clean water source">
                 </div>
             </div>
         </div>
     </section>
-    
-    <section class="cta-section">
+
+    <!-- Issues Preview Section -->
+    <section id="issues" class="issues">
         <div class="container">
-            <div class="cta-content">
-                <h2>Join Our Water Conservation Movement</h2>
-                <p>Every action counts. Start implementing these water conservation points today and become part of the solution for a sustainable water future.</p>
-                <a href="#" class="btn">Take the Pledge</a>
+            <h2>Water Challenges We Face</h2>
+            <div class="issues-grid">
+                <div class="issue-card">
+                    <div class="issue-icon">💧</div>
+                    <h3>Water Scarcity</h3>
+                    <p>More than 2 billion people live in countries experiencing high water stress. Climate change, population growth, and inefficient water use are exacerbating this crisis.</p>
+                    <a href="issues.html#scarcity" class="btn" style="margin-top: 15px; padding: 8px 20px; font-size: 0.9rem;">Read More</a>
+                </div>
+                <div class="issue-card">
+                    <div class="issue-icon">🏭</div>
+                    <h3>Pollution</h3>
+                    <p>Industrial waste, agricultural runoff, and plastic pollution are contaminating our water sources at an alarming rate, harming marine life and entering our food chain.</p>
+                    <a href="issues.html#pollution" class="btn" style="margin-top: 15px; padding: 8px 20px; font-size: 0.9rem;">Read More</a>
+                </div>
+                <div class="issue-card">
+                    <div class="issue-icon">🌡️</div>
+                    <h3>Climate Impact</h3>
+                    <p>Climate change is disrupting water cycles worldwide, causing more frequent and severe droughts, floods, and storms that threaten freshwater sources.</p>
+                    <a href="issues.html#climate" class="btn" style="margin-top: 15px; padding: 8px 20px; font-size: 0.9rem;">Read More</a>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="issues.html" class="btn">View All Water Issues</a>
             </div>
         </div>
     </section>
-    
+
+    <!-- Solutions Preview Section -->
+    <section id="solutions" class="solutions">
+        <div class="container">
+            <h2>Our Solutions</h2>
+            <div class="solution-item">
+                <div class="solution-text">
+                    <h3>Community Water Monitoring</h3>
+                    <p>We empower local communities to monitor their water sources through our citizen science programs. Volunteers are trained to test water quality, identify pollution sources, and report issues to authorities.</p>
+                    <a href="solutions.html#monitoring" class="btn">Learn About This Solution</a>
+                </div>
+                <div class="solution-image">
+                    <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Water testing">
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="solutions.html" class="btn">Explore All Solutions</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Action Section -->
+    <section id="action" class="action">
+        <div class="container">
+            <h2>Join the Movement</h2>
+            <p>Your actions matter. Whether you're an individual, community group, or business, there are many ways to contribute to water conservation and protection efforts.</p>
+            <div style="margin-top: 40px;">
+                <a href="action.html" class="btn">See How You Can Help</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>Water Guardians</h3>
-                    <p>Dedicated to protecting our planet's water resources through conservation, innovation, and education.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
+                    <p>Protecting water resources for current and future generations through education, advocacy, and community action.</p>
                 </div>
-                
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#points">Conservation Points</a></li>
-                        <li><a href="#">Solutions</a></li>
-                        <li><a href="#">Get Involved</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="issues.html">Water Issues</a></li>
+                        <li><a href="solutions.html">Our Solutions</a></li>
+                        <li><a href="action.html">Get Involved</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-column">
-                    <h3>Resources</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Water Saving Tips</a></li>
-                        <li><a href="#">Educational Materials</a></li>
-                        <li><a href="#">Research & Reports</a></li>
-                        <li><a href="#">Volunteer Opportunities</a></li>
-                    </ul>
-                </div>
-                
                 <div class="footer-column">
                     <h3>Contact Us</h3>
                     <ul class="footer-links">
-                        <li><i class="fas fa-envelope"></i> info@waterguardians.org</li>
-                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Conservation Way, Eco City</li>
+                        <li>Email: info@waterguardians.org</li>
+                        <li>Phone: +1 (555) 123-4567</li>
+                        <li>Address: 123 Conservation Way, Eco City</li>
                     </ul>
                 </div>
             </div>
-            
             <div class="copyright">
-                <p>&copy; 2025 Water Guardians. All rights reserved. | Together for a water-secure future</p>
+                <p>&copy; 2023 Water Guardians. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-            
-            // Add animation on scroll
-            const animateOnScroll = function() {
-                const elements = document.querySelectorAll('.point-card, .stat');
-                
-                elements.forEach(element => {
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const screenPosition = window.innerHeight / 1.2;
-                    
-                    if (elementPosition < screenPosition) {
-                        element.style.opacity = '1';
-                        element.style.transform = 'translateY(0)';
-                    }
-                });
-            };
-            
-            // Set initial state for animation
-            const animatedElements = document.querySelectorAll('.point-card, .stat');
-            animatedElements.forEach(element => {
-                element.style.opacity = '0';
-                element.style.transform = 'translateY(20px)';
-                element.style.transition = 'opacity 0.5s, transform 0.5s';
-            });
-            
-            window.addEventListener('scroll', animateOnScroll);
-            // Trigger once on load in case elements are already in view
-            animateOnScroll();
+        // Header background change on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if(window.scrollY > 50) {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+            } else {
+                header.style.backgroundColor = 'white';
+            }
         });
     </script>
 </body>
