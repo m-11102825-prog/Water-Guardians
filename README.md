@@ -744,7 +744,7 @@
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 Water Guardians. All rights reserved. | Together for a water-secure future</p>
+                <p>&copy; 2025 Water Guardians. All rights reserved. | Together for a water-secure future</p>
             </div>
         </div>
     </footer>
