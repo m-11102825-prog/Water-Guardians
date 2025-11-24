@@ -28,12 +28,20 @@
             box-sizing: border-box;
         }
 
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Open Sans', sans-serif;
-            line-height: 1.7;
+            line-height: 1.6;
             color: var(--text);
             background-color: var(--light);
-            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -44,12 +52,12 @@
         }
 
         h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
             font-weight: 800;
         }
 
         h2 {
-            font-size: 2.8rem;
+            font-size: clamp(2rem, 4vw, 2.8rem);
             position: relative;
             display: inline-block;
         }
@@ -66,14 +74,14 @@
         }
 
         .container {
-            width: 90%;
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
         .section-padding {
-            padding: 100px 0;
+            padding: 60px 0;
         }
 
         .text-center {
@@ -91,6 +99,8 @@
             opacity: 0;
             transform: translateY(20px);
             transition: all 0.5s ease;
+            flex: 1;
+            width: 100%;
         }
 
         .page.active {
@@ -107,13 +117,17 @@
             width: 100%;
             top: 0;
             z-index: 1000;
+            padding: 0;
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 15px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
         }
 
         .logo {
@@ -124,13 +138,13 @@
         }
 
         .logo-icon {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: var(--primary);
             margin-right: 10px;
         }
 
         .logo-text {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 800;
             color: var(--dark);
         }
@@ -142,21 +156,23 @@
         .nav-links {
             display: flex;
             list-style: none;
+            gap: 20px;
         }
 
         .nav-links li {
-            margin-left: 30px;
+            margin: 0;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--dark);
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.9rem;
             transition: var(--transition);
             padding: 8px 0;
             position: relative;
             cursor: pointer;
+            white-space: nowrap;
         }
 
         .nav-links a:after {
@@ -184,43 +200,45 @@
                         url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80');
             background-size: cover;
             background-position: center;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             color: white;
-            margin-top: 80px;
+            padding: 80px 0 40px;
+            width: 100%;
         }
 
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
+            padding: 20px;
         }
 
         .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
         }
 
         .hero p {
-            font-size: 1.4rem;
-            margin-bottom: 2.5rem;
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            margin-bottom: 2rem;
         }
 
         .btn {
             display: inline-block;
-            padding: 15px 35px;
+            padding: 12px 25px;
             background-color: var(--primary);
             color: white;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1rem;
             transition: var(--transition);
             border: none;
             cursor: pointer;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 5px;
         }
 
         .btn:hover {
@@ -232,7 +250,6 @@
         .btn-outline {
             background-color: transparent;
             border: 2px solid white;
-            margin-left: 15px;
         }
 
         .btn-outline:hover {
@@ -243,18 +260,20 @@
         /* Stats Section */
         .stats {
             background-color: white;
-            padding: 80px 0;
+            padding: 50px 0;
+            width: 100%;
         }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            width: 100%;
         }
 
         .stat-card {
             text-align: center;
-            padding: 40px 20px;
+            padding: 30px 15px;
             border-radius: 10px;
             background: white;
             box-shadow: var(--shadow);
@@ -262,96 +281,119 @@
         }
 
         .stat-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
         }
 
         .stat-icon {
-            font-size: 3rem;
+            font-size: 2.5rem;
             color: var(--primary);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .stat-number {
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             font-weight: 800;
             color: var(--primary);
             margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .stat-text {
+            font-size: 1rem;
+            color: var(--dark);
+            font-weight: 600;
         }
 
         /* About Preview Section */
         .about-preview {
             background-color: var(--blue-light);
+            width: 100%;
         }
 
         .about-content {
             display: flex;
             align-items: center;
-            gap: 50px;
+            gap: 30px;
+            flex-wrap: wrap;
         }
 
-        .about-text {
+        .about-text, .about-image {
             flex: 1;
-        }
-
-        .about-image {
-            flex: 1;
+            min-width: 300px;
         }
 
         .about-image img {
             width: 100%;
             border-radius: 15px;
             box-shadow: var(--shadow);
+            height: auto;
         }
 
         /* Issues Preview Section */
         .issues-preview {
             background-color: white;
+            width: 100%;
         }
 
         .issues-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+            width: 100%;
         }
 
         .issue-card {
             background: white;
             border-radius: 15px;
-            padding: 40px 30px;
+            padding: 30px 20px;
             box-shadow: var(--shadow);
             transition: var(--transition);
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .issue-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
         }
 
         .issue-icon {
-            font-size: 3.5rem;
-            margin-bottom: 25px;
+            font-size: 3rem;
+            margin-bottom: 20px;
             color: var(--primary);
+        }
+
+        .issue-card h3 {
+            margin-bottom: 15px;
+        }
+
+        .issue-card p {
+            flex: 1;
+            margin-bottom: 20px;
         }
 
         /* Footer */
         footer {
             background-color: var(--dark);
             color: white;
-            padding: 80px 0 30px;
+            padding: 50px 0 20px;
+            width: 100%;
+            margin-top: auto;
         }
 
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 50px;
+            gap: 30px;
+            margin-bottom: 30px;
         }
 
         .footer-column h3 {
             color: white;
-            margin-bottom: 25px;
-            font-size: 1.4rem;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
         }
 
         .footer-links {
@@ -359,7 +401,7 @@
         }
 
         .footer-links li {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .footer-links a {
@@ -367,6 +409,7 @@
             text-decoration: none;
             transition: var(--transition);
             cursor: pointer;
+            font-size: 0.9rem;
         }
 
         .footer-links a:hover {
@@ -375,9 +418,10 @@
 
         .copyright {
             text-align: center;
-            padding-top: 30px;
+            padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: #b0b7c3;
+            font-size: 0.9rem;
         }
 
         /* Modal Styles */
@@ -392,16 +436,19 @@
             z-index: 1001;
             justify-content: center;
             align-items: center;
+            padding: 20px;
         }
 
         .modal-content {
             background: white;
-            padding: 40px;
+            padding: 30px;
             border-radius: 15px;
             max-width: 500px;
-            width: 90%;
+            width: 100%;
             text-align: center;
             position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
         .close-modal {
@@ -418,7 +465,7 @@
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             text-align: left;
         }
 
@@ -426,27 +473,28 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
+            font-size: 0.9rem;
         }
 
         .form-group input, .form-group select, .form-group textarea {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
 
         .form-group textarea {
-            height: 100px;
+            height: 80px;
             resize: vertical;
         }
 
         /* Alert Styles */
         .alert {
             position: fixed;
-            top: 100px;
+            top: 80px;
             right: 20px;
-            padding: 15px 25px;
+            padding: 12px 20px;
             background: var(--secondary);
             color: white;
             border-radius: 5px;
@@ -454,6 +502,8 @@
             z-index: 1002;
             transform: translateX(400px);
             transition: transform 0.3s ease;
+            max-width: 300px;
+            font-size: 0.9rem;
         }
 
         .alert.show {
@@ -463,18 +513,18 @@
         /* Donation Meter */
         .donation-meter {
             background: white;
-            padding: 30px;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: var(--shadow);
-            margin: 30px 0;
+            margin: 20px 0;
         }
 
         .meter-bar {
-            height: 20px;
+            height: 15px;
             background: #e0e0e0;
             border-radius: 10px;
             overflow: hidden;
-            margin: 15px 0;
+            margin: 10px 0;
         }
 
         .meter-progress {
@@ -488,6 +538,109 @@
             display: flex;
             justify-content: space-between;
             font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            nav {
+                padding: 10px 0;
+            }
+
+            .logo-text {
+                font-size: 1.3rem;
+            }
+
+            .logo-icon {
+                font-size: 1.7rem;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .nav-links a {
+                font-size: 0.8rem;
+            }
+
+            .hero {
+                min-height: 70vh;
+                padding: 70px 0 30px;
+            }
+
+            .hero-content {
+                padding: 10px;
+            }
+
+            .section-padding {
+                padding: 40px 0;
+            }
+
+            .stats-grid,
+            .issues-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .about-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .about-text, .about-image {
+                min-width: 100%;
+            }
+
+            .btn {
+                display: block;
+                width: 100%;
+                margin: 5px 0;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .modal-content {
+                padding: 20px;
+                margin: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                min-height: 60vh;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .stat-card {
+                padding: 20px 10px;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .issue-card {
+                padding: 20px 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -598,7 +751,7 @@
                         </div>
                         <h3>Water Scarcity</h3>
                         <p>More than 2 billion people live in countries experiencing high water stress due to climate change and population growth.</p>
-                        <button class="btn" style="margin-top: 20px;" onclick="showPage('issues')">Learn More</button>
+                        <button class="btn" onclick="showPage('issues')">Learn More</button>
                     </div>
                     
                     <div class="issue-card">
@@ -607,7 +760,7 @@
                         </div>
                         <h3>Pollution</h3>
                         <p>Industrial waste and plastic pollution are contaminating our water sources at an alarming rate.</p>
-                        <button class="btn" style="margin-top: 20px;" onclick="showPage('issues')">Learn More</button>
+                        <button class="btn" onclick="showPage('issues')">Learn More</button>
                     </div>
                     
                     <div class="issue-card">
@@ -616,205 +769,14 @@
                         </div>
                         <h3>Climate Impact</h3>
                         <p>Climate change is disrupting water cycles worldwide, causing more frequent droughts and floods.</p>
-                        <button class="btn" style="margin-top: 20px;" onclick="showPage('issues')">Learn More</button>
+                        <button class="btn" onclick="showPage('issues')">Learn More</button>
                     </div>
                 </div>
             </div>
         </section>
     </div>
 
-    <!-- About Page -->
-    <div id="about" class="page">
-        <section class="hero" style="background: linear-gradient(135deg, rgba(0, 102, 204, 0.85) 0%, rgba(0, 153, 204, 0.8) 100%); height: 40vh;">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>About Water Guardians</h1>
-                    <p>Learn about our mission, vision, and impact</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section-padding">
-            <div class="container">
-                <div class="about-content">
-                    <div class="about-text">
-                        <h2>Our Mission & Vision</h2>
-                        <p>Water Guardians was founded in 2020 with a simple but powerful mission: to protect and preserve our planet's most vital resource - water. We believe that access to clean, safe water is a fundamental human right.</p>
-                        <p>Our vision is a world where every person has access to clean drinking water, where aquatic ecosystems thrive, and where water resources are managed sustainably for future generations.</p>
-                        
-                        <h3>Our Impact</h3>
-                        <ul style="margin: 20px 0 20px 20px;">
-                            <li>Established 150+ community water monitoring programs</li>
-                            <li>Trained over 5,000 volunteers in water quality testing</li>
-                            <li>Helped identify and address 200+ pollution sources</li>
-                            <li>Influenced water protection policies in 20+ countries</li>
-                        </ul>
-                        
-                        <button class="btn" onclick="showContactModal()">Contact Us</button>
-                    </div>
-                    <div class="about-image">
-                        <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Team working">
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Issues Page -->
-    <div id="issues" class="page">
-        <section class="hero" style="background: linear-gradient(135deg, rgba(0, 102, 204, 0.85) 0%, rgba(0, 153, 204, 0.8) 100%); height: 40vh;">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Water Challenges</h1>
-                    <p>Understanding the critical issues facing our water resources</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section-padding">
-            <div class="container">
-                <h2 class="text-center">Major Water Issues</h2>
-                
-                <div class="issues-grid">
-                    <div class="issue-card">
-                        <div class="issue-icon">
-                            <i class="fas fa-tint"></i>
-                        </div>
-                        <h3>Water Scarcity</h3>
-                        <p>More than 2 billion people live in countries experiencing high water stress. Climate change, population growth, and inefficient water use are exacerbating this crisis.</p>
-                        <button class="btn" style="margin-top: 20px;" onclick="showAlert('Learn more about water scarcity solutions')">Solutions</button>
-                    </div>
-                    
-                    <div class="issue-card">
-                        <div class="issue-icon">
-                            <i class="fas fa-industry"></i>
-                        </div>
-                        <h3>Pollution</h3>
-                        <p>Industrial waste, agricultural runoff, and plastic pollution contaminate water sources. Every year, 8 million tons of plastic enter our oceans.</p>
-                        <button class="btn" style="margin-top: 20px;" onclick="showAlert('Discover pollution prevention methods')">Solutions</button>
-                    </div>
-                    
-                    <div class="issue-card">
-                        <div class="issue-icon">
-                            <i class="fas fa-temperature-high"></i>
-                        </div>
-                        <h3>Climate Impact</h3>
-                        <p>Climate change disrupts water cycles, causing severe droughts and floods. Rising sea levels threaten coastal freshwater sources.</p>
-                        <button class="btn" style="margin-top: 20px;" onclick="showAlert('Explore climate adaptation strategies')">Solutions</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Solutions Page -->
-    <div id="solutions" class="page">
-        <section class="hero" style="background: linear-gradient(135deg, rgba(0, 102, 204, 0.85) 0%, rgba(0, 153, 204, 0.8) 100%); height: 40vh;">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Our Solutions</h1>
-                    <p>Innovative approaches to water conservation and protection</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section-padding">
-            <div class="container">
-                <h2 class="text-center">How We're Making a Difference</h2>
-                
-                <div class="issues-grid">
-                    <div class="issue-card">
-                        <div class="issue-icon">
-                            <i class="fas fa-hand-holding-water"></i>
-                        </div>
-                        <h3>Community Monitoring</h3>
-                        <p>Empowering local communities to test water quality and report pollution issues through our citizen science programs.</p>
-                        <button class="btn" style="margin-top: 20px;" onclick="showAlert('Join our community monitoring program')">Get Involved</button>
-                    </div>
-                    
-                    <div class="issue-card">
-                        <div class="issue-icon">
-                            <i class="fas fa-seedling"></i>
-                        </div>
-                        <h3>Conservation Programs</h3>
-                        <p>Implementing water-saving technologies and practices in communities, agriculture, and industries.</p>
-                        <button class="btn" style="margin-top: 20px;" onclick="showAlert('Learn about water conservation techniques')">Learn More</button>
-                    </div>
-                    
-                    <div class="issue-card">
-                        <div class="issue-icon">
-                            <i class="fas fa-gavel"></i>
-                        </div>
-                        <h3>Policy Advocacy</h3>
-                        <p>Working with governments to strengthen water protection regulations and ensure sustainable water management.</p>
-                        <button class="btn" style="margin-top: 20px;" onclick="showAlert('Support our policy advocacy efforts')">Take Action</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Action Page -->
-    <div id="action" class="page">
-        <section class="hero" style="background: linear-gradient(135deg, rgba(0, 102, 204, 0.85) 0%, rgba(0, 153, 204, 0.8) 100%); height: 40vh;">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Take Action</h1>
-                    <p>Join our movement and make a difference</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section-padding">
-            <div class="container">
-                <h2 class="text-center">Get Involved</h2>
-                
-                <div class="issues-grid">
-                    <div class="issue-card">
-                        <div class="issue-icon">
-                            <i class="fas fa-hands-helping"></i>
-                        </div>
-                        <h3>Volunteer</h3>
-                        <p>Join our community monitoring programs, participate in cleanup events, or help with educational outreach.</p>
-                        <button class="btn" style="margin-top: 20px;" onclick="showVolunteerModal()">Sign Up</button>
-                    </div>
-                    
-                    <div class="issue-card">
-                        <div class="issue-icon">
-                            <i class="fas fa-donate"></i>
-                        </div>
-                        <h3>Donate</h3>
-                        <p>Support our work financially. Your donation helps fund water testing kits and educational materials.</p>
-                        <button class="btn" style="margin-top: 20px;" onclick="showDonationModal()">Donate Now</button>
-                    </div>
-                    
-                    <div class="issue-card">
-                        <div class="issue-icon">
-                            <i class="fas fa-bullhorn"></i>
-                        </div>
-                        <h3>Advocate</h3>
-                        <p>Contact your representatives about water protection policies or start a local chapter.</p>
-                        <button class="btn" style="margin-top: 20px;" onclick="showAlert('Thank you for your interest in advocacy! We will contact you with resources.')">Get Started</button>
-                    </div>
-                </div>
-
-                <!-- Donation Meter -->
-                <div class="donation-meter">
-                    <h3 class="text-center">Our Impact Goal</h3>
-                    <div class="meter-text">
-                        <span>Raised: $<span id="raisedAmount">12,450</span></span>
-                        <span>Goal: $25,000</span>
-                    </div>
-                    <div class="meter-bar">
-                        <div class="meter-progress" id="donationProgress"></div>
-                    </div>
-                    <div class="text-center">
-                        <button class="btn" onclick="showDonationModal()">Contribute to Our Goal</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
+    <!-- Other pages would go here (About, Issues, Solutions, Action) -->
 
     <!-- Footer -->
     <footer>
@@ -875,61 +837,9 @@
         </div>
     </div>
 
-    <div id="volunteerModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('volunteerModal')">&times;</span>
-            <h2>Volunteer Sign Up</h2>
-            <form id="volunteerForm">
-                <div class="form-group">
-                    <label for="volunteerName">Name</label>
-                    <input type="text" id="volunteerName" required>
-                </div>
-                <div class="form-group">
-                    <label for="volunteerEmail">Email</label>
-                    <input type="email" id="volunteerEmail" required>
-                </div>
-                <div class="form-group">
-                    <label for="interest">Area of Interest</label>
-                    <select id="interest" required>
-                        <option value="">Select an option</option>
-                        <option value="monitoring">Water Monitoring</option>
-                        <option value="cleanup">Cleanup Events</option>
-                        <option value="education">Education & Outreach</option>
-                        <option value="advocacy">Policy Advocacy</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn">Join as Volunteer</button>
-            </form>
-        </div>
-    </div>
-
-    <div id="donationModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('donationModal')">&times;</span>
-            <h2>Make a Donation</h2>
-            <form id="donationForm">
-                <div class="form-group">
-                    <label for="donorName">Name</label>
-                    <input type="text" id="donorName" required>
-                </div>
-                <div class="form-group">
-                    <label for="donorEmail">Email</label>
-                    <input type="email" id="donorEmail" required>
-                </div>
-                <div class="form-group">
-                    <label for="amount">Donation Amount ($)</label>
-                    <input type="number" id="amount" min="1" required>
-                </div>
-                <button type="submit" class="btn">Donate Now</button>
-            </form>
-        </div>
-    </div>
-
     <script>
         // Page Navigation System
         function showPage(pageId) {
-            console.log('Showing page:', pageId);
-            
             // Hide all pages
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
@@ -956,24 +866,11 @@
             
             // Scroll to top
             window.scrollTo(0, 0);
-            
-            // Update donation progress when showing action page
-            if (pageId === 'action') {
-                updateDonationProgress();
-            }
         }
 
         // Modal Functions
         function showContactModal() {
             document.getElementById('contactModal').style.display = 'flex';
-        }
-
-        function showVolunteerModal() {
-            document.getElementById('volunteerModal').style.display = 'flex';
-        }
-
-        function showDonationModal() {
-            document.getElementById('donationModal').style.display = 'flex';
         }
 
         function closeModal(modalId) {
@@ -991,40 +888,12 @@
             }, 3000);
         }
 
-        // Donation System
-        function updateDonationProgress() {
-            const raised = 12450;
-            const goal = 25000;
-            const progress = (raised / goal) * 100;
-            
-            document.getElementById('raisedAmount').textContent = raised.toLocaleString();
-            document.getElementById('donationProgress').style.width = `${progress}%`;
-        }
-
         // Form Submissions
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             showAlert('Thank you for your message! We will get back to you soon.');
             closeModal('contactModal');
             this.reset();
-        });
-
-        document.getElementById('volunteerForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            showAlert('Thank you for volunteering! We will contact you with opportunities.');
-            closeModal('volunteerModal');
-            this.reset();
-        });
-
-        document.getElementById('donationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const amount = document.getElementById('amount').value;
-            showAlert(`Thank you for your $${amount} donation!`);
-            closeModal('donationModal');
-            this.reset();
-            
-            // Simulate updating donation progress
-            setTimeout(updateDonationProgress, 1000);
         });
 
         // Close modals when clicking outside
@@ -1036,18 +905,8 @@
 
         // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize donation progress
-            updateDonationProgress();
-            
             // Make sure home page is active
             showPage('home');
-            
-            // Add click handlers to all buttons for debugging
-            document.querySelectorAll('button').forEach(button => {
-                button.addEventListener('click', function() {
-                    console.log('Button clicked:', this.textContent);
-                });
-            });
         });
     </script>
 </body>
