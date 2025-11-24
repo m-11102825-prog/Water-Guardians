@@ -869,7 +869,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 Water Guardians. All rights reserved.</p>
+                <p>&copy; 2025 Water Guardians. All rights reserved.</p>
             </div>
         </div>
     </footer>
