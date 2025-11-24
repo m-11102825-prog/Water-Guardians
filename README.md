@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Water Guardians - Towards Clean Water Future</title>
+    <title>Water Conservation Points | Water Guardians</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -138,8 +138,8 @@
             width: 100%;
         }
         
-        /* Section Styles */
-        section {
+        /* Points Section */
+        .points-section {
             padding: 80px 0;
         }
         
@@ -175,128 +175,106 @@
             color: var(--text);
         }
         
-        /* Problems Section */
-        .problems-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+        .points-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
         }
         
-        .problem-card {
+        .point-card {
             background: white;
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
             transition: transform 0.3s, box-shadow 0.3s;
         }
         
-        .problem-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        .point-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
         
-        .problem-img {
-            height: 200px;
-            background-color: var(--primary);
+        .point-number {
+            background: var(--primary);
+            color: white;
+            width: 80px;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
-            font-size: 3rem;
+            font-size: 2.5rem;
+            font-weight: 700;
         }
         
-        .problem-content {
-            padding: 25px;
+        .point-content {
+            padding: 30px;
+            flex: 1;
         }
         
-        .problem-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+        .point-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .point-title {
+            font-size: 1.8rem;
             color: var(--primary);
         }
         
-        /* Solutions Section */
-        .solutions-container {
-            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-            padding: 80px 0;
-        }
-        
-        .solutions-tabs {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 40px;
-        }
-        
-        .tab {
-            padding: 12px 25px;
-            background: white;
-            border: none;
-            border-radius: 30px;
-            margin: 0 10px 15px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .tab.active {
-            background: var(--primary);
-            color: white;
-        }
-        
-        .tab-content {
-            display: none;
-        }
-        
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.5s;
-        }
-        
-        .solution-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-        
-        .solution-card {
-            background: white;
-            border-radius: 10px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        
-        .solution-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .solution-icon {
-            width: 80px;
-            height: 80px;
+        .point-icon {
+            width: 60px;
+            height: 60px;
             background: var(--secondary);
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 0 auto 20px;
             color: white;
-            font-size: 2rem;
+            font-size: 1.5rem;
         }
         
-        .solution-card h3 {
-            margin-bottom: 15px;
+        .point-description {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .point-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 25px;
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .detail-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(38, 208, 206, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--secondary);
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .detail-content h4 {
+            margin-bottom: 5px;
             color: var(--primary);
         }
         
-        /* Impact Section */
-        .impact-stats {
+        .stats-container {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
-            margin: 40px 0;
+            margin: 60px 0 40px;
         }
         
         .stat {
@@ -307,6 +285,11 @@
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             min-width: 200px;
+            transition: transform 0.3s;
+        }
+        
+        .stat:hover {
+            transform: translateY(-5px);
         }
         
         .stat-value {
@@ -433,12 +416,6 @@
             font-size: 0.9rem;
         }
         
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
         /* Responsive */
         @media (max-width: 768px) {
             h1 {
@@ -453,7 +430,20 @@
                 font-size: 2rem;
             }
             
-            .impact-stats {
+            .point-card {
+                flex-direction: column;
+            }
+            
+            .point-number {
+                width: 100%;
+                height: 80px;
+            }
+            
+            .point-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-container {
                 flex-direction: column;
                 align-items: center;
             }
@@ -464,9 +454,9 @@
     <header>
         <div class="header-content">
             <div class="container">
-                <h1>Water Guardians</h1>
-                <p class="subtitle">Join the movement to protect our planet's most vital resource and ensure clean water for future generations</p>
-                <a href="#solutions" class="btn">Get Involved</a>
+                <h1>Water Conservation Points</h1>
+                <p class="subtitle">Key strategies and actions to protect our planet's most vital resource</p>
+                <a href="#points" class="btn">Explore Points</a>
             </div>
         </div>
         <div class="header-wave"></div>
@@ -480,221 +470,278 @@
                     WaterGuardians
                 </div>
                 <ul class="nav-links">
-                    <li><a href="#problems">The Problem</a></li>
-                    <li><a href="#solutions">Solutions</a></li>
-                    <li><a href="#impact">Impact</a></li>
-                    <li><a href="#action">Take Action</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#points">Points</a></li>
+                    <li><a href="#">Solutions</a></li>
+                    <li><a href="#">Get Involved</a></li>
                 </ul>
             </nav>
         </div>
     </div>
     
-    <section id="problems">
+    <section class="points-section" id="points">
         <div class="container">
             <div class="section-title">
-                <h2>The Water Crisis</h2>
-                <p>Our planet faces unprecedented water challenges that threaten ecosystems, economies, and human health</p>
+                <h2>Key Conservation Points</h2>
+                <p>Explore the essential strategies and actions that can make a significant difference in water conservation efforts worldwide</p>
             </div>
             
-            <div class="problems-grid">
-                <div class="problem-card">
-                    <div class="problem-img">
-                        <i class="fas fa-tint-slash"></i>
-                    </div>
-                    <div class="problem-content">
-                        <h3>Water Scarcity</h3>
-                        <p>Over 2 billion people live in countries experiencing high water stress, and this number continues to grow due to climate change and population growth.</p>
+            <div class="points-container">
+                <!-- Point 1 -->
+                <div class="point-card">
+                    <div class="point-number">1</div>
+                    <div class="point-content">
+                        <div class="point-header">
+                            <h3 class="point-title">Reduce Household Water Usage</h3>
+                            <div class="point-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                        </div>
+                        <p class="point-description">Households account for a significant portion of water consumption. Simple changes in daily habits and upgrades to water-efficient fixtures can dramatically reduce water waste.</p>
+                        
+                        <div class="point-details">
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-shower"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <h4>Shorter Showers</h4>
+                                    <p>Reducing shower time by just 2 minutes can save up to 1,500 gallons per person annually.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-faucet"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <h4>Fix Leaks</h4>
+                                    <p>A dripping faucet can waste over 3,000 gallons per year. Prompt repairs are essential.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-toilet"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <h4>Efficient Fixtures</h4>
+                                    <p>Low-flow toilets and showerheads can reduce water usage by 20-60%.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <h4>Full Loads Only</h4>
+                                    <p>Running dishwashers and washing machines only when full saves both water and energy.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="problem-card">
-                    <div class="problem-img">
-                        <i class="fas fa-industry"></i>
-                    </div>
-                    <div class="problem-content">
-                        <h3>Pollution</h3>
-                        <p>Industrial waste, agricultural runoff, and plastic pollution contaminate water sources, making them unsafe for consumption and harming aquatic life.</p>
+                <!-- Point 2 -->
+                <div class="point-card">
+                    <div class="point-number">2</div>
+                    <div class="point-content">
+                        <div class="point-header">
+                            <h3 class="point-title">Implement Smart Agricultural Practices</h3>
+                            <div class="point-icon">
+                                <i class="fas fa-tractor"></i>
+                            </div>
+                        </div>
+                        <p class="point-description">Agriculture is the largest consumer of freshwater globally. Adopting efficient irrigation methods and water-smart farming techniques can significantly reduce agricultural water usage.</p>
+                        
+                        <div class="point-details">
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-tint"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <h4>Drip Irrigation</h4>
+                                    <p>Delivers water directly to plant roots, reducing evaporation and runoff by up to 60%.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-cloud-sun"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <h4>Soil Moisture Monitoring</h4>
+                                    <p>Smart sensors ensure watering only when necessary, preventing over-irrigation.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-seedling"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <h4>Drought-Resistant Crops</h4>
+                                    <p>Planting crops suited to local climate conditions reduces irrigation demands.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-recycle"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <h4>Water Recycling</h4>
+                                    <p>Treating and reusing agricultural runoff conserves freshwater resources.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="problem-card">
-                    <div class="problem-img">
-                        <i class="fas fa-hand-holding-water"></i>
+                <!-- Point 3 -->
+                <div class="point-card">
+                    <div class="point-number">3</div>
+                    <div class="point-content">
+                        <div class="point-header">
+                            <h3 class="point-title">Promote Industrial Water Efficiency</h3>
+                            <div class="point-icon">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                        </div>
+                        <p class="point-description">Industries can dramatically reduce their water footprint through process optimization, recycling systems, and innovative technologies that minimize water consumption.</p>
+                        
+                        <div class="point-details">
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-recycle"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <h4>Closed-Loop Systems</h4>
+                                    <p>Recycling water within industrial processes reduces freshwater intake by up to 90%.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <h4>Process Optimization</h4>
+                                    <p>Efficient manufacturing techniques can significantly reduce water requirements.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <h4>Water Audits</h4>
+                                    <p>Regular assessments identify areas for improvement and potential savings.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-hand-holding-water"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <h4>Alternative Sources</h4>
+                                    <p>Using treated wastewater or harvested rainwater for non-potable applications.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="problem-content">
-                        <h3>Access Inequality</h3>
-                        <p>While some regions have abundant water resources, millions of people lack access to clean drinking water and basic sanitation facilities.</p>
+                </div>
+                
+                <!-- Point 4 -->
+                <div class="point-card">
+                    <div class="point-number">4</div>
+                    <div class="point-content">
+                        <div class="point-header">
+                            <h3 class="point-title">Protect and Restore Watersheds</h3>
+                            <div class="point-icon">
+                                <i class="fas fa-tree"></i>
+                            </div>
+                        </div>
+                        <p class="point-description">Healthy watersheds are essential for maintaining water quality and regulating water flow. Conservation and restoration efforts protect these vital ecosystems.</p>
+                        
+                        <div class="point-details">
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-mountain"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <h4>Riparian Buffers</h4>
+                                    <p>Vegetated areas along water bodies filter pollutants and prevent erosion.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-water"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <h4>Wetland Restoration</h4>
+                                    <p>Wetlands act as natural water filters and flood control systems.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-ban"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <h4>Pollution Prevention</h4>
+                                    <p>Reducing agricultural and urban runoff protects water quality.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-hands-helping"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <h4>Community Involvement</h4>
+                                    <p>Local stewardship programs engage citizens in watershed protection.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                </div>
+            </div>
+            
+            <div class="stats-container">
+                <div class="stat">
+                    <div class="stat-value">30%</div>
+                    <div class="stat-label">Potential Reduction in Household Water Use</div>
+                </div>
+                
+                <div class="stat">
+                    <div class="stat-value">50%</div>
+                    <div class="stat-label">Water Savings with Drip Irrigation</div>
+                </div>
+                
+                <div class="stat">
+                    <div class="stat-value">70%</div>
+                    <div class="stat-label">Industrial Water Recycling Potential</div>
+                </div>
+                
+                <div class="stat">
+                    <div class="stat-value">2.5B</div>
+                    <div class="stat-label">People Impacted by Water Scarcity</div>
                 </div>
             </div>
         </div>
     </section>
     
-    <section class="solutions-container" id="solutions">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Solutions</h2>
-                <p>Practical approaches to address water challenges and create sustainable water management systems</p>
-            </div>
-            
-            <div class="solutions-tabs">
-                <button class="tab active" data-tab="conservation">Conservation</button>
-                <button class="tab" data-tab="technology">Technology</button>
-                <button class="tab" data-tab="policy">Policy</button>
-                <button class="tab" data-tab="education">Education</button>
-            </div>
-            
-            <div class="tab-content active" id="conservation">
-                <div class="solution-grid">
-                    <div class="solution-card">
-                        <div class="solution-icon">
-                            <i class="fas fa-home"></i>
-                        </div>
-                        <h3>Household Efficiency</h3>
-                        <p>Promoting water-saving fixtures and behaviors to reduce domestic water consumption by up to 30%.</p>
-                    </div>
-                    
-                    <div class="solution-card">
-                        <div class="solution-icon">
-                            <i class="fas fa-tractor"></i>
-                        </div>
-                        <h3>Agricultural Innovation</h3>
-                        <p>Implementing precision irrigation and drought-resistant crops to optimize water use in farming.</p>
-                    </div>
-                    
-                    <div class="solution-card">
-                        <div class="solution-icon">
-                            <i class="fas fa-recycle"></i>
-                        </div>
-                        <h3>Water Recycling</h3>
-                        <p>Developing systems to treat and reuse wastewater for non-potable purposes, reducing freshwater demand.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="technology">
-                <div class="solution-grid">
-                    <div class="solution-card">
-                        <div class="solution-icon">
-                            <i class="fas fa-filter"></i>
-                        </div>
-                        <h3>Purification Systems</h3>
-                        <p>Advanced filtration technologies that provide clean drinking water even from contaminated sources.</p>
-                    </div>
-                    
-                    <div class="solution-card">
-                        <div class="solution-icon">
-                            <i class="fas fa-tint"></i>
-                        </div>
-                        <h3>Rainwater Harvesting</h3>
-                        <p>Systems to collect and store rainwater for household and agricultural use during dry periods.</p>
-                    </div>
-                    
-                    <div class="solution-card">
-                        <div class="solution-icon">
-                            <i class="fas fa-cloud-rain"></i>
-                        </div>
-                        <h3>Desalination</h3>
-                        <p>Energy-efficient methods to convert seawater into freshwater for coastal communities.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="policy">
-                <div class="solution-grid">
-                    <div class="solution-card">
-                        <div class="solution-icon">
-                            <i class="fas fa-gavel"></i>
-                        </div>
-                        <h3>Water Governance</h3>
-                        <p>Establishing fair and effective policies for water allocation and protection of water resources.</p>
-                    </div>
-                    
-                    <div class="solution-card">
-                        <div class="solution-icon">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <h3>International Cooperation</h3>
-                        <p>Promoting transboundary water agreements to manage shared water resources sustainably.</p>
-                    </div>
-                    
-                    <div class="solution-card">
-                        <div class="solution-icon">
-                            <i class="fas fa-balance-scale"></i>
-                        </div>
-                        <h3>Economic Instruments</h3>
-                        <p>Implementing water pricing and trading systems that reflect the true value of water.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="education">
-                <div class="solution-grid">
-                    <div class="solution-card">
-                        <div class="solution-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <h3>School Programs</h3>
-                        <p>Integrating water conservation into school curricula to educate the next generation.</p>
-                    </div>
-                    
-                    <div class="solution-card">
-                        <div class="solution-icon">
-                            <i class="fas fa-chalkboard-teacher"></i>
-                        </div>
-                        <h3>Community Workshops</h3>
-                        <p>Training local communities in water management practices and conservation techniques.</p>
-                    </div>
-                    
-                    <div class="solution-card">
-                        <div class="solution-icon">
-                            <i class="fas fa-bullhorn"></i>
-                        </div>
-                        <h3>Awareness Campaigns</h3>
-                        <p>Public information initiatives to highlight the importance of water conservation.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section id="impact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Impact</h2>
-                <p>Measuring the difference we're making in communities around the world</p>
-            </div>
-            
-            <div class="impact-stats">
-                <div class="stat">
-                    <div class="stat-value">2.5M</div>
-                    <div class="stat-label">People with Clean Water Access</div>
-                </div>
-                
-                <div class="stat">
-                    <div class="stat-value">350+</div>
-                    <div class="stat-label">Communities Engaged</div>
-                </div>
-                
-                <div class="stat">
-                    <div class="stat-value">45%</div>
-                    <div class="stat-label">Reduction in Water Waste</div>
-                </div>
-                
-                <div class="stat">
-                    <div class="stat-value">120</div>
-                    <div class="stat-label">Water Projects Completed</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section class="cta-section" id="action">
+    <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2>Join the Water Guardians Movement</h2>
-                <p>Your actions today will determine the water security of tomorrow. Together, we can protect this precious resource for future generations.</p>
-                <a href="#" class="btn">Take Action Now</a>
+                <h2>Join Our Water Conservation Movement</h2>
+                <p>Every action counts. Start implementing these water conservation points today and become part of the solution for a sustainable water future.</p>
+                <a href="#" class="btn">Take the Pledge</a>
             </div>
         </div>
     </section>
@@ -716,17 +763,17 @@
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#problems">The Problem</a></li>
-                        <li><a href="#solutions">Solutions</a></li>
-                        <li><a href="#impact">Our Impact</a></li>
-                        <li><a href="#action">Get Involved</a></li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#points">Conservation Points</a></li>
+                        <li><a href="#">Solutions</a></li>
+                        <li><a href="#">Get Involved</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Resources</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Water Conservation Tips</a></li>
+                        <li><a href="#">Water Saving Tips</a></li>
                         <li><a href="#">Educational Materials</a></li>
                         <li><a href="#">Research & Reports</a></li>
                         <li><a href="#">Volunteer Opportunities</a></li>
@@ -751,24 +798,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Tab functionality
-            const tabs = document.querySelectorAll('.tab');
-            const tabContents = document.querySelectorAll('.tab-content');
-            
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    const tabId = tab.getAttribute('data-tab');
-                    
-                    // Remove active class from all tabs and contents
-                    tabs.forEach(t => t.classList.remove('active'));
-                    tabContents.forEach(c => c.classList.remove('active'));
-                    
-                    // Add active class to current tab and content
-                    tab.classList.add('active');
-                    document.getElementById(tabId).classList.add('active');
-                });
-            });
-            
             // Smooth scrolling for navigation links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
@@ -789,7 +818,7 @@
             
             // Add animation on scroll
             const animateOnScroll = function() {
-                const elements = document.querySelectorAll('.problem-card, .solution-card, .stat');
+                const elements = document.querySelectorAll('.point-card, .stat');
                 
                 elements.forEach(element => {
                     const elementPosition = element.getBoundingClientRect().top;
@@ -803,7 +832,7 @@
             };
             
             // Set initial state for animation
-            const animatedElements = document.querySelectorAll('.problem-card, .solution-card, .stat');
+            const animatedElements = document.querySelectorAll('.point-card, .stat');
             animatedElements.forEach(element => {
                 element.style.opacity = '0';
                 element.style.transform = 'translateY(20px)';
