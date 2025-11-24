@@ -4,8 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Water Guardians - Protecting Our Water Resources</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
         :root {
             --primary: #1a73e8;
             --secondary: #34a853;
@@ -13,85 +20,22 @@
             --light: #f8f9fa;
             --dark: #202124;
             --text: #333333;
+            --blue-light: #e8f4fd;
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
             background-color: #f5f7fa;
+            color: var(--text);
+            line-height: 1.6;
         }
-        
+
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
-        section {
-            padding: 80px 0;
-        }
-        
-        h1, h2, h3 {
-            margin-bottom: 20px;
-            color: var(--dark);
-        }
-        
-        h1 {
-            font-size: 3rem;
-            font-weight: 700;
-        }
-        
-        h2 {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-        }
-        
-        h2:after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--primary);
-            border-radius: 2px;
-        }
-        
-        p {
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn:hover {
-            background-color: var(--accent);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        
+
         /* Header Styles */
         header {
             background-color: white;
@@ -101,57 +45,67 @@
             top: 0;
             z-index: 1000;
         }
-        
+
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 0;
         }
-        
+
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
             color: var(--primary);
             text-decoration: none;
+            display: flex;
+            align-items: center;
         }
-        
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+
         .nav-links {
             display: flex;
             list-style: none;
         }
-        
+
         .nav-links li {
             margin-left: 30px;
         }
-        
+
         .nav-links a {
             text-decoration: none;
             color: var(--dark);
             font-weight: 500;
             transition: color 0.3s ease;
             cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 4px;
         }
-        
+
         .nav-links a:hover, .nav-links a.active {
             color: var(--primary);
+            background-color: var(--blue-light);
         }
-        
+
         /* Page Styles */
         .page {
             display: none;
             animation: fadeIn 0.5s ease;
         }
-        
+
         .page.active {
             display: block;
         }
-        
+
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-        
+
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
@@ -163,154 +117,228 @@
             align-items: center;
             text-align: center;
             color: white;
+            margin-top: 80px;
         }
-        
+
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
         .hero h1 {
             color: white;
             font-size: 3.5rem;
             margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
-        
+
         .hero p {
             font-size: 1.3rem;
             margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
-        
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            color: var(--dark);
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
         /* About Section */
         .about {
             background-color: white;
         }
-        
+
         .about-content {
             display: flex;
             align-items: center;
             gap: 50px;
         }
-        
+
         .about-text {
             flex: 1;
         }
-        
+
         .about-image {
             flex: 1;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
-        
+
         .about-image img {
             width: 100%;
             height: auto;
             display: block;
+            transition: transform 0.5s ease;
         }
-        
+
+        .about-image img:hover {
+            transform: scale(1.05);
+        }
+
         /* Issues Section */
         .issues {
-            background-color: #f0f7ff;
+            background-color: var(--blue-light);
         }
-        
+
         .issues-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
-        
+
         .issue-card {
             background-color: white;
             border-radius: 10px;
             padding: 30px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: transform 0.3s ease;
+            text-align: center;
         }
-        
+
         .issue-card:hover {
             transform: translateY(-10px);
         }
-        
+
         .issue-card h3 {
             color: var(--primary);
             margin-bottom: 15px;
         }
-        
+
         .issue-icon {
             font-size: 2.5rem;
             margin-bottom: 20px;
             color: var(--primary);
         }
-        
+
         /* Solutions Section */
         .solutions {
             background-color: white;
         }
-        
+
         .solution-item {
             display: flex;
             align-items: center;
             margin-bottom: 50px;
             gap: 30px;
         }
-        
+
         .solution-item:nth-child(even) {
             flex-direction: row-reverse;
         }
-        
+
         .solution-text {
             flex: 1;
         }
-        
+
         .solution-image {
             flex: 1;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
-        
+
         .solution-image img {
             width: 100%;
             height: auto;
             display: block;
+            transition: transform 0.5s ease;
         }
-        
+
+        .solution-image img:hover {
+            transform: scale(1.05);
+        }
+
         /* Action Section */
         .action {
             background-color: var(--primary);
             color: white;
             text-align: center;
         }
-        
+
         .action h2 {
             color: white;
         }
-        
+
         .action h2:after {
             background-color: white;
         }
-        
+
         .action p {
             max-width: 800px;
             margin: 0 auto 30px;
         }
-        
+
         .action .btn {
             background-color: white;
             color: var(--primary);
         }
-        
+
         .action .btn:hover {
             background-color: #f0f0f0;
         }
-        
+
         /* Page Content Styles */
         .page-content {
             padding-top: 100px;
             min-height: calc(100vh - 200px);
         }
-        
+
         .page-hero {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
                         var(--hero-image);
@@ -323,48 +351,55 @@
             color: white;
             margin-bottom: 50px;
         }
-        
+
         .page-hero h1 {
             color: white;
             font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
-        
+
         .content-section {
             margin-bottom: 60px;
         }
-        
+
         .content-section h2 {
             text-align: left;
         }
-        
+
         .content-section h2:after {
             left: 0;
             transform: none;
         }
-        
+
         /* Team Section */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
         }
-        
+
         .team-member {
             text-align: center;
             background: white;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
         }
-        
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
         .team-member img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 20px;
+            border: 5px solid var(--blue-light);
         }
-        
+
         /* Form Styles */
         .contact-form {
             max-width: 600px;
@@ -374,17 +409,17 @@
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
-        
+
         .form-group {
             margin-bottom: 20px;
         }
-        
+
         .form-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
         }
-        
+
         .form-group input,
         .form-group textarea,
         .form-group select {
@@ -394,59 +429,122 @@
             border-radius: 5px;
             font-family: inherit;
             font-size: 1rem;
+            transition: border 0.3s ease;
         }
-        
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
         .form-group textarea {
             height: 150px;
             resize: vertical;
         }
-        
+
+        /* Stats Section */
+        .stats {
+            background-color: var(--blue-light);
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .stat-text {
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+
         /* Footer */
         footer {
             background-color: var(--dark);
             color: white;
             padding: 50px 0 20px;
         }
-        
+
         .footer-content {
             display: flex;
             justify-content: space-between;
             margin-bottom: 40px;
         }
-        
+
         .footer-column {
             flex: 1;
             margin-right: 30px;
         }
-        
+
         .footer-column:last-child {
             margin-right: 0;
         }
-        
+
         .footer-column h3 {
             color: white;
             margin-bottom: 20px;
+            font-size: 1.3rem;
         }
-        
+
         .footer-links {
             list-style: none;
         }
-        
+
         .footer-links li {
             margin-bottom: 10px;
         }
-        
+
         .footer-links a {
             color: #ddd;
             text-decoration: none;
             transition: color 0.3s ease;
             cursor: pointer;
         }
-        
+
         .footer-links a:hover {
             color: white;
         }
-        
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+        }
+
         .copyright {
             text-align: center;
             padding-top: 20px;
@@ -454,7 +552,7 @@
             font-size: 0.9rem;
             color: #aaa;
         }
-        
+
         /* Responsive Design */
         @media (max-width: 768px) {
             h1 {
@@ -486,6 +584,14 @@
             .nav-links {
                 display: none;
             }
+            
+            .hero {
+                height: 70vh;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
         }
     </style>
 </head>
@@ -494,7 +600,10 @@
     <header>
         <div class="container">
             <nav>
-                <a class="logo" onclick="showPage('home')">Water Guardians</a>
+                <a class="logo" onclick="showPage('home')">
+                    <i class="fas fa-tint"></i>
+                    Water Guardians
+                </a>
                 <ul class="nav-links">
                     <li><a class="nav-link active" onclick="showPage('home')">Home</a></li>
                     <li><a class="nav-link" onclick="showPage('about')">About</a></li>
@@ -515,6 +624,31 @@
                     <h1>Protecting Our Precious Water Resources</h1>
                     <p>Join the movement to safeguard our rivers, lakes, and oceans for future generations. Together, we can ensure clean, accessible water for all.</p>
                     <a class="btn" onclick="showPage('action')">Become a Water Guardian</a>
+                    <a class="btn btn-outline" onclick="showPage('about')" style="margin-left: 15px;">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">2.2B</div>
+                        <div class="stat-text">People lack safe drinking water</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">80%</div>
+                        <div class="stat-text">Of wastewater is untreated</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">40%</div>
+                        <div class="stat-text">Of water bodies are polluted</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">1M</div>
+                        <div class="stat-text">Plastic bottles bought every minute</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -542,19 +676,19 @@
                 <h2>Water Challenges We Face</h2>
                 <div class="issues-grid">
                     <div class="issue-card">
-                        <div class="issue-icon">💧</div>
+                        <div class="issue-icon"><i class="fas fa-tint"></i></div>
                         <h3>Water Scarcity</h3>
                         <p>More than 2 billion people live in countries experiencing high water stress. Climate change, population growth, and inefficient water use are exacerbating this crisis.</p>
                         <a class="btn" onclick="showPage('issues')" style="margin-top: 15px; padding: 8px 20px; font-size: 0.9rem;">Read More</a>
                     </div>
                     <div class="issue-card">
-                        <div class="issue-icon">🏭</div>
+                        <div class="issue-icon"><i class="fas fa-industry"></i></div>
                         <h3>Pollution</h3>
                         <p>Industrial waste, agricultural runoff, and plastic pollution are contaminating our water sources at an alarming rate, harming marine life and entering our food chain.</p>
                         <a class="btn" onclick="showPage('issues')" style="margin-top: 15px; padding: 8px 20px; font-size: 0.9rem;">Read More</a>
                     </div>
                     <div class="issue-card">
-                        <div class="issue-icon">🌡️</div>
+                        <div class="issue-icon"><i class="fas fa-temperature-high"></i></div>
                         <h3>Climate Impact</h3>
                         <p>Climate change is disrupting water cycles worldwide, causing more frequent and severe droughts, floods, and storms that threaten freshwater sources.</p>
                         <a class="btn" onclick="showPage('issues')" style="margin-top: 15px; padding: 8px 20px; font-size: 0.9rem;">Read More</a>
@@ -778,19 +912,19 @@
                     
                     <div class="issues-grid">
                         <div class="issue-card">
-                            <div class="issue-icon">👥</div>
+                            <div class="issue-icon"><i class="fas fa-hands-helping"></i></div>
                             <h3>Volunteer</h3>
                             <p>Join our community monitoring programs, participate in cleanup events, or help with educational outreach in your area.</p>
                             <a class="btn" style="margin-top: 15px; padding: 8px 20px; font-size: 0.9rem;">Sign Up</a>
                         </div>
                         <div class="issue-card">
-                            <div class="issue-icon">💙</div>
+                            <div class="issue-icon"><i class="fas fa-donate"></i></div>
                             <h3>Donate</h3>
                             <p>Support our work financially. Your donation helps fund water testing kits, educational materials, and advocacy efforts.</p>
                             <a class="btn" style="margin-top: 15px; padding: 8px 20px; font-size: 0.9rem;">Donate Now</a>
                         </div>
                         <div class="issue-card">
-                            <div class="issue-icon">📢</div>
+                            <div class="issue-icon"><i class="fas fa-bullhorn"></i></div>
                             <h3>Advocate</h3>
                             <p>Contact your representatives about water protection policies or start a Water Guardians chapter in your community.</p>
                             <a class="btn" style="margin-top: 15px; padding: 8px 20px; font-size: 0.9rem;">Take Action</a>
@@ -807,6 +941,13 @@
                             <p><strong>Email:</strong> info@waterguardians.org</p>
                             <p><strong>Phone:</strong> +1 (555) 123-4567</p>
                             <p><strong>Address:</strong> 123 Conservation Way, Eco City</p>
+                            
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
                         </div>
                         <div class="about-image">
                             <div class="contact-form">
@@ -848,6 +989,12 @@
                 <div class="footer-column">
                     <h3>Water Guardians</h3>
                     <p>Protecting water resources for current and future generations through education, advocacy, and community action.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
                 </div>
                 <div class="footer-column">
                     <h3>Quick Links</h3>
@@ -862,9 +1009,9 @@
                 <div class="footer-column">
                     <h3>Contact Us</h3>
                     <ul class="footer-links">
-                        <li>Email: info@waterguardians.org</li>
-                        <li>Phone: +1 (555) 123-4567</li>
-                        <li>Address: 123 Conservation Way, Eco City</li>
+                        <li><i class="fas fa-envelope"></i> info@waterguardians.org</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Conservation Way, Eco City</li>
                     </ul>
                 </div>
             </div>
